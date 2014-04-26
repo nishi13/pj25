@@ -10,6 +10,9 @@ admin.autodiscover()
 # admin.autodiscover()
 
 urlpatterns = patterns('',
+
+	# EgPlus: -----------------------------------------------------------------------------------------------------
+
 	(r'','sistema.views.home'),
 	(r'^egplus/$','sistema.views.egplus'),
 
@@ -18,4 +21,9 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     # (r'^admin/', include(admin.site.urls)),
+
+    # importando o template -------------------------------------------------------------------------------------
+
+    url(r'^static/(?P<path>.*)$', 'django.views.static.serve',
+            {'document_root': os.path.join(os.getcwd(),'static') }),
 )
