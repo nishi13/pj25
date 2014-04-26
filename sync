@@ -1,0 +1,9 @@
+rm banco.db
+python manage.py syncdb << END
+yes
+admin
+admin@admin.com
+admin
+admin
+END
+
