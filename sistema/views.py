@@ -9,7 +9,6 @@ from django.template import RequestContext
 
 # functions
 def home (request):
-
 	return HttpResponseRedirect('/egplus')
 
 def egplus (request):
