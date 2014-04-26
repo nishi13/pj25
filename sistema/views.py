@@ -12,5 +12,5 @@ def home (request):
 	return HttpResponseRedirect('/egplus')
 
 def egplus (request):
-
+	
 	return render_to_response ('egplus.html', locals(), context_instance = RequestContext(request))
