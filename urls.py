@@ -13,7 +13,7 @@ urlpatterns = patterns('',
 
 	# EgPlus: -----------------------------------------------------------------------------------------------------
 
-	(r'','sistema.views.home'),
+	(r'^$','sistema.views.home'),
 	(r'^egplus/$','sistema.views.egplus'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
