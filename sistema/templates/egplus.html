@@ -29,7 +29,9 @@
 	            <li class="about secBgColor"><a href="#about">Formulário de Interesse</a></li>
 	            <li class="services mainBgColor"><a href="#services">Confirmados</a></li>
 	            <li class="portfolio secBgColor"><a href="#portfolio">Mensagens</a></li>
+			{% if evento.local %}
 	            <li class="contact mainBgColor"><a href="#contact">Mapa</a></li>
+	        {% endif %}
             </ul> <!-- /.main_menu -->
         </div> <!-- /.responsive_menu -->
     </div> <!-- /responsive_navigation -->
@@ -46,7 +48,9 @@
 	            <li class="about secBgColor"><a href="#about">Formulário de Interesse</a></li>
 	            <li class="services mainBgColor"><a href="#services">Confirmados</a></li>
 	            <li class="portfolio secBgColor"><a href="#portfolio">Mensagens</a></li>
+			{% if evento.local %}
 	            <li class="contact mainBgColor"><a href="#contact">Mapa</a></li>
+	        {% endif %}
 	        </ul>
 		</div> <!-- /.navigation -->
 
@@ -193,6 +197,7 @@
 <!--   ................. /#mapa  .................    -->
 
 
+		{% if evento.local %}
 			<div id="contact" class="section-content">
 				<div class="row">
 					<div class="col-md-12">
@@ -239,6 +244,7 @@
 					</div> <!-- /.col-md-12 -->
 				</div>
 			</div> <!-- /#contact -->
+			{% endif %}
 
 		</div> <!-- /.container-fluid -->
 
@@ -306,17 +312,30 @@
 			};
 
 		});
-
+		{% if evento.local %}
         function initialize() {
-          var mapOptions = {
-            zoom: 11,
-            center: new google.maps.LatLng(16.8451789,96.1439764)
-          };
+			var geocoder = new google.maps.Geocoder();
+			var mapOptions = {
+			  zoom: 15
+			};
 
-          var map = new google.maps.Map(document.getElementById('map-canvas'),
-              mapOptions);
+			var map = new google.maps.Map(document.getElementById('map-canvas'),
+			  mapOptions);
+
+			geocoder.geocode({
+			  'address': '{{evento.local}}'
+			}, 
+			function(results, status) {
+			  if(status == google.maps.GeocoderStatus.OK) {
+			     new google.maps.Marker({
+			        position: results[0].geometry.location,
+			        map: map
+			     });
+			     map.setCenter(results[0].geometry.location);
+			  }
+			});
         }
-
+        {% endif %}
         function loadScript() {
           var script = document.createElement('script');
           script.type = 'text/javascript';

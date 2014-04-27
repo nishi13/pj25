@@ -43,7 +43,7 @@ class Command(NoArgsCommand):
         user.is_staff = True
         user.save()
 
-        egplus = Evento('egplus','EG Plus', 'Conectando Gerações','004E95','FBAA26')
+        egplus = Evento('egplus','EG Plus', 'Conectando Gerações','004E95','FBAA26',local='R.Conde de Iraja 96, Sao Paulo, Brasil')
         egplus.save()
 
         analista = Cargo('Analista')
