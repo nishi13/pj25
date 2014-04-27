@@ -1,7 +1,17 @@
 /* Blocks do html */
-div {
+html, body {
+   margin:0;
+   padding:0;
+   height:100%;
 }
 
+img {
+	margin: 5px;
+}
+
+div {
+	height: 100%;
+}
 /* Class do html */
 
 .bluepj {
@@ -15,43 +25,54 @@ div {
 
 /* header form */
 #header {
-	z-index: 1;
-	position: fixed;
-	margin: -10px;
+	display: block;
 	width: 110%;
-	height: 60px;
-
+	height: 70px;
 }
 
 #header p {
-	float:left;
-	margin-left: 5px;
-	padding-top: 5px;
+	top: -50%;
+	vertical-align: center;
+	margin-left: auto;
+    margin-right: auto;
+    width: 6em;
+	display: inline;
+	text-align: center;
 	font-size: 16px;
 	font-family: Tahoma, sans-serif;
 	color: #ffffff;
 }
 
 #left {
-	position: relative;
+	position: absolute;
+	display: block;
 	float: left;
 	width: 10%;
-	height: 4000px;
+	padding-left: 5px;
+   	padding-bottom:60px;
+}
+
+#left h3 {
+	text-align: center;
+	padding-top: 5px;
+	margin-left: -5px;
+	font-size: 16px;
+	font-family: Tahoma, sans-serif;
+	color: #FFF;
 }
 
 #right {
 	position: relative;
+	display: inline-block;
 	float: right;
 	width: 88%;
-	height: 400px;
+   	padding-bottom:60px;
 }
 
 #footer {
-	position: relative;
+	position:absolute;
+   	bottom:0;
+   	width:100%;
+	position: fixed;
 	height: 50px;
-	clear: both;
-	font-family: Verdana, sans-serif;
-	font-size: 14px;
-	text-align: center;
-	color: #ffffff;
 }

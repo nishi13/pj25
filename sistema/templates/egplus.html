@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
 	<head>
 		<link type="text/css" rel="stylesheet" href="/static/css/stylesheet.css"/>
@@ -7,14 +8,21 @@
 	</head>
 	<body>
 		<div class="bluepj" id="header">
+			<img src="/static/img/logo-pj-negativo-icon.png"/>
 			<p>EG Plus - Integrando as Gerações da Poli Júnior com muita classe</p>
 		</div>
 		<div class="orangepj" id="left">
-		{{membro_form.as_p}}
+			<h3 class="bluepj">Confirmar Presença</h3>
+			<form>
+				{{membro_form.as_p}}
+				<imput type="submit">
+			</form>
 		</div>
 		<div class="orangepj" id="right">
+			<img src="/static/img/eg-logo-azul.png"/>
 		</div>
 		<div class="bluepj" id="footer">
 		</div>
+
 	</body>
 </html>
