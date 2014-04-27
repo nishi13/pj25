@@ -7,31 +7,29 @@ def replace (path):
     return path
 
 def upload_template (instance, filename):
-    filename = "%s.html" % (instance)
-    file_save = os.path.join('sistema/templates', filename)
+    pathname = "%s.html" % (instance)
+    file_save = os.path.join('sistema/templates', pathname)
     return replace (file_save)
 
 def upload_css (instance, filename):
-    filename = "%s.css" % (instance)
-    file_save = os.path.join('static/css', filename)
+    pathname = "%s.css" % (instance)
+    file_save = os.path.join('static/css', pathname)
     return replace (file_save)
 
 def upload_logo (instance, filename):
     ext = filename.split('.')[-1]
-    filename = "%s.%s" % (instance, ext)
-    file_save = os.path.join('static/images/logo', filename)
+    pathname = "%s.%s" % (instance, ext)
+    file_save = os.path.join('static/images/logo', pathname)
     return replace (file_save)
 
 def upload_imagem (instance, filename):
-    ext = filename.split('.')[-1]
-    filename = "%s.%s" % (instance.id, ext)
-    file_save = os.path.join('static/images/fotos', filename)
-    return replace (file_save)
+    pathname = "%s_%s" % (instance.evento.sigla, filename)
+    return os.path.join('static/images/fotos', pathname)
 
 def upload_perfil (instance, filename):
     ext = filename.split('.')[-1]
-    filename = "%s.%s" % (instance.id, ext)
-    file_save = os.path.join('static/images/perfil', filename)
+    pathname = "%s.%s" % (instance.id, ext)
+    file_save = os.path.join('static/images/perfil', pathname)
     return replace (file_save)
 
 class Cargo(models.Model):
