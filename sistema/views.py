@@ -15,13 +15,18 @@ def home (request):
 	return HttpResponseRedirect('/egplus')
 
 def evento (request, evento_sigla):
-    membro_form = MembroForm()
+    evento = Evento.objects.get(sigla = evento_sigla)
+    confirmados = Membro.objects.filter(evento=evento)
+    anos = {}
+    for pessoa in confirmados:
+		if (anos[pessoa.ano_de_saida]) 
+			anos[pessoa.ano_de_saida].append (pessoa)
+ 		else obj[asd.ano]=[asd]
     if request.method == 'GET':
         membro_form = MembroForm()
     else:
         membro_form = MembroForm(request.POST)
         if membro_form.is_valid():
-            evento = Evento.objects.get(sigla = evento_sigla)
             membro = membro_form.save(commit = False)
             membro.evento = evento
             membro.save()

@@ -72,17 +72,23 @@ li.contact a.active { color: #e3387c; }
 
 form div{
 	display: inline-block;
-	width: 50%;
+	width: 25%;
 }
 
-form label{
-	display: inline;
+form div label{
+	display: block;
 }
-form input{
+form div input{
 	display: inline-block;
 }
-form select{
+form div select{
 	display: inline-block;
+}
+form input {
+	margin-top: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
 }
 
 a.menu-toggle-btn { width: 100%; height: 60px; background-color: #38a9e3; text-align: center; line-height: 60px; display: block; color: white; }

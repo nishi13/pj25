@@ -1,7 +1,7 @@
 jQuery(document).ready(function($){
 
 
-
+    $('#lista-dos-anos').accordion();
 
 	/************** Scroll Navigation *********************/
 	$('.navigation').singlePageNav({
