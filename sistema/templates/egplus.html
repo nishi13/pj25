@@ -104,7 +104,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<form action="" method="POST" > {% csrf_token %}
+					<form action="" method="POST" ENCTYPE="multipart/form-data"> {% csrf_token %}
 				        {% for pergunta in membro_form %}
 			        		<div class="col-md-4">
 								<div class="portfolio-item">
@@ -144,7 +144,7 @@
 											<div class="member-item">
 												<div class="member-thumb">
 													{% if pessoa.foto %}
-														<img src={{pessoa.foto.url}} alt="girl 1">
+														<img src=/{{pessoa.foto.url}} alt="girl 1">
 													{% else %}
 														<img src="/static/img/guy.png" alt="girl 1">
 													{% endif %}

@@ -28,7 +28,7 @@ def evento (request, evento_sigla):
     if request.method == 'GET':
         membro_form = MembroForm()
     else:
-        membro_form = MembroForm(request.POST)
+        membro_form = MembroForm(request.POST, request.FILES)
         if membro_form.is_valid():
             membro = membro_form.save(commit = False)
             membro.evento = evento
