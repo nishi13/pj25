@@ -14,13 +14,13 @@ urlpatterns = patterns('',
 	# EgPlus: -----------------------------------------------------------------------------------------------------
 
 	(r'^$','sistema.views.home'),
-	(r'^egplus/$','sistema.views.egplus'),
-
+    
+    (r'^admin/', include(admin.site.urls)),
+    (r'^(?P<evento_nome>[0-9a-zA-Z]+)/$','sistema.views.evento'),
     # Uncomment the admin/doc line below to enable admin documentation:
     # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
-    # (r'^admin/', include(admin.site.urls)),
 
     # importando o template -------------------------------------------------------------------------------------
 

@@ -7,7 +7,6 @@ from django.shortcuts import render_to_response, get_object_or_404, get_list_or_
 from django.http import HttpResponseRedirect, HttpResponse
 from django.template import RequestContext
 
-
 from sistema.forms import *
 from sistema.models import *
 
@@ -15,6 +14,9 @@ from sistema.models import *
 def home (request):
 	return HttpResponseRedirect('/egplus')
 
-def egplus (request):
+def evento (request, evento_nome):
     membro_form = MembroForm()
-    return render_to_response ('egplus.html', locals(), context_instance = RequestContext(request))
+    try:
+        return render_to_response (evento_nome+'.html', locals(), context_instance = RequestContext(request))
+    except :
+        return render_to_response ('base.html', locals(), context_instance = RequestContext(request))
