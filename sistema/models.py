@@ -54,16 +54,17 @@ class Evento(models.Model):
         return self.sigla
 
 class Membro(models.Model):
-    nome = models.CharField(max_length=128, verbose_name="Nome Completo")
+    nome = models.CharField(max_length=128, verbose_name="Nome Completo *")
     apelido = models.CharField(max_length=64, null=True, blank=True, verbose_name="Apelido")
     ano_de_ingresso = models.IntegerField(null=True, blank=True, verbose_name="Ano de Ingresso")
-    ano_de_saida = models.IntegerField(null=True, blank=True, verbose_name="Ano de Saida")
-    email = models.EmailField(max_length=128, verbose_name="E-mail")
+    ano_de_saida = models.IntegerField(verbose_name="Ano de Saida *")
+    email = models.EmailField(max_length=128, verbose_name="E-mail *")
     cargo = models.ForeignKey(Cargo, null=True, blank=True)
     facebook = models.URLField(max_length=256, null=True, blank=True)
     twitter = models.URLField(max_length=256, null=True, blank=True)
     linkedin = models.URLField(max_length=256, null=True, blank=True)
     foto = models.FileField(upload_to=upload_perfil, null=True, blank=True)
+    mensagem = models.TextField(max_length=1024, verbose_name="Mensagem", null=True, blank=True)
     confirmado = models.BooleanField()
     evento = models.ForeignKey(Evento)
     
