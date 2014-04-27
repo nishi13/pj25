@@ -13,6 +13,7 @@ from sistema.models import *
 # functions
 def evento (request, evento_sigla):
     evento = Evento.objects.get(sigla = evento_sigla)
+    cargos = Cargo.objects.all()
     imagens = Imagem.objects.filter(evento=evento)
     confirmados = Membro.objects.filter(evento=evento).filter(confirmado=True).order_by('nome')
     anos = []

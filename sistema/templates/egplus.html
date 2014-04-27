@@ -106,6 +106,35 @@
 				<div class="row">
 					<form action="" method="POST" ENCTYPE="multipart/form-data"> {% csrf_token %}
 				        {% for pergunta in membro_form %}
+				        {% if pergunta.id_for_label == 'id_cargo' %}
+				        <div class="col-md-4">
+							<div class="portfolio-item">
+								<div class="portfolio-thumb">
+									
+									<h3>{{pergunta.label}}</h3>
+		        					<select name="cargo" id="id_cargo">
+										<option value="--Adicionar--">--Adicionar--</option>
+										{% for cargo in cargos %}
+										<option value="{{cargo.nome}}">{{cargo.nome}}</option>
+										{% endfor %}
+									</select><br>
+									<input id="id_cargo_add" type="text" name="cargo_add" maxlength="64">
+									 <script language="Javascript">
+									    var selectmenu=document.getElementById("id_cargo")
+									    selectmenu.onchange=function(){ //run some code when "onchange" event fires
+									     var chosenoption=this.options[this.selectedIndex] //this refers to "selectmenu"
+									     if (chosenoption.value=="--Adicionar--"){
+									      $("#id_cargo_add").show(50);
+									     }
+									     else {
+									      $("#id_cargo_add").hide(50);
+									     }
+									    }
+								    </script>
+								</div>
+							</div>
+						</div>
+				        {% else %}
 			        		<div class="col-md-4">
 								<div class="portfolio-item">
 									<div class="portfolio-thumb">
@@ -115,7 +144,7 @@
 									</div>
 								</div>
 							</div>
-
+						{% endif %}
 				        {% endfor %}
 				        <!--{{membro_form.as_p}}-->
 				        <input type="submit">
