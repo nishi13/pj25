@@ -58,6 +58,10 @@ class Command(NoArgsCommand):
         conselho = Cargo('Conselho')
         conselho.save()
 
+        Imagem(evento=egplus, titulo='Foto1', arquivo='static/images/fotos/egplus_1.jpg').save()
+        Imagem(evento=egplus, titulo='Foto2', arquivo='static/images/fotos/egplus_2.jpg').save()
+        Imagem(evento=egplus, titulo='Foto3', arquivo='static/images/fotos/egplus_3.jpg').save()
+
         cargos = [analista,gerente,diretor,conselho]
 
         for membro in membros:
