@@ -19,6 +19,14 @@ li.secBgColor a.active { color: #FBAA26; }
 
 .submit-btn { margin-top: 30px; }
 
+/* codigo para mensagem */
+
+.mensagen-row{
+	margin-bottom: 5px;
+	background: #eeeeee url("images/ui-bg_highlight-soft_100_eeeeee_1x100.png") 50% top repeat-x;
+	padding-top: 10px
+}
+
 /* codigo do template*/
 
 .main-menu, .responsive-menu ul, .social-member, .progess-bars, .first-footer .social-footer ul { padding: 0; margin: 0; list-style: none; }
