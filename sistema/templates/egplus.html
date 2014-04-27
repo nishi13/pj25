@@ -140,20 +140,20 @@
 											<div class="member-item">
 												<div class="member-thumb">
 													{% if pessoa.foto %}
-														<img src={{pessoa.foto.url}} alt="girl 1">
+														<img src="/{{pessoa.foto}}">
 													{% else %}
-														<img src="/static/img/guy.png" alt="girl 1">
+														<img src="/static/img/guy.png">
 													{% endif %}
 													<div class="overlay">
 														<ul class="social-member">
 															{% if pessoa.facebook %}
-															<li><a href={{pessoa.facebook}} class="fa fa-facebook"></a></li>
+																<li><a href={{pessoa.facebook}} class="fa fa-facebook"></a></li>
 															{% endif %}
 															{% if pessoa.twitter %}
-															<li><a href={{pessoa.twitter}} class="fa fa-twitter"></a></li>
+																<li><a href={{pessoa.twitter}} class="fa fa-twitter"></a></li>
 															{% endif %}
 															{% if pessoa.linkedin %}
-															<li><a href={{pessoa.linkedin}} class="fa fa-linkedin"></a></li>
+																<li><a href={{pessoa.linkedin}} class="fa fa-linkedin"></a></li>
 															{% endif %}
 														</ul>
 													</div>
@@ -184,10 +184,46 @@
 						</div> <!-- /.section-title -->
 					</div> <!-- /.col-md-12 -->
 				</div> <!-- /.row -->
-				<div class="row">
-					As informações gerais deveriam vir aqui
-				</div> <!-- /.row -->
-				
+				{% for mensagem in mensagens %}
+					<div class="row mensagen-row">
+						<div class="col-md-3">
+							<div class="member-item">
+								<div class="member-thumb">
+									{% if mensagem.foto %}
+										<img src="/{{mensagem.foto}}">
+									{% else %}
+										<img src="/static/img/guy.png">
+									{% endif %}
+									<div class="overlay">
+										<ul class="social-member">
+											{% if mensagem.facebook %}
+												<li><a href={{pessoa.facebook}} class="fa fa-facebook"></a></li>
+											{% endif %}
+											{% if mensagem.twitter %}
+												<li><a href={{pessoa.twitter}} class="fa fa-twitter"></a></li>
+											{% endif %}
+											{% if mensagem.linkedin %}
+												<li><a href={{pessoa.linkedin}} class="fa fa-linkedin"></a></li>
+											{% endif %}
+										</ul>
+									</div>
+								</div>
+								<div class="member-content">
+									<h4>{{mensagem.nome}}</h4>
+									<p>{{pessoa.apelido}} - {{pessoa.cargo}}</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-9">
+							{% if mensagem.confirmado %}
+								<h3>Confirmou presença</h3>
+							{% else %}
+								<h3>Não confirmou presença</h3>
+							{% endif %}
+							<p>{{mensagem.mensagem}}</p>
+						</div>
+					</div><!-- /.row -->
+				{% endfor %} 
 			</div> <!-- /#portfolio -->
 
 <!--   ................. /#mapa  .................    -->
