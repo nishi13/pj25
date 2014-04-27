@@ -1,28 +1,38 @@
 from django.db import models
 import os
 
+def replace (path):
+    if os.path.exists(path):
+        os.remove(path)
+    return path
+
 def upload_template (instance, filename):
     filename = "%s.html" % (instance)
-    return os.path.join('sistema/templates', filename)
+    file_save = os.path.join('sistema/templates', filename)
+    return replace (file_save)
 
 def upload_css (instance, filename):
     filename = "%s.css" % (instance)
-    return os.path.join('static/css', filename)
+    file_save = os.path.join('static/css', filename)
+    return replace (file_save)
 
 def upload_logo (instance, filename):
     ext = filename.split('.')[-1]
     filename = "%s.%s" % (instance, ext)
-    return os.path.join('static/images/logo', filename)
+    file_save = os.path.join('static/images/logo', filename)
+    return replace (file_save)
 
 def upload_imagem (instance, filename):
     ext = filename.split('.')[-1]
     filename = "%s.%s" % (instance.id, ext)
-    return os.path.join('static/images/fotos', filename)
+    file_save = os.path.join('static/images/fotos', filename)
+    return replace (file_save)
 
 def upload_perfil (instance, filename):
     ext = filename.split('.')[-1]
     filename = "%s.%s" % (instance.id, ext)
-    return os.path.join('static/images/perfil', filename)
+    file_save = os.path.join('static/images/perfil', filename)
+    return replace (file_save)
 
 class Cargo(models.Model):
     nome = models.CharField(max_length=64, verbose_name="Cargo / Ultimo Cargo", primary_key=True)
