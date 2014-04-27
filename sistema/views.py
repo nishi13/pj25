@@ -19,9 +19,10 @@ def evento (request, evento_sigla):
     confirmados = Membro.objects.filter(evento=evento)
     anos = {}
     for pessoa in confirmados:
-		if (anos[pessoa.ano_de_saida]) 
+		if (anos[pessoa.ano_de_saida]):
 			anos[pessoa.ano_de_saida].append (pessoa)
- 		else obj[asd.ano]=[asd]
+ 		else:
+            obj[asd.ano]=[asd]
     if request.method == 'GET':
         membro_form = MembroForm()
     else:
