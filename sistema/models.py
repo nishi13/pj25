@@ -39,6 +39,7 @@ class Evento(models.Model):
         return self.sigla
 
 class Membro(models.Model):
+    confirmado = models.BooleanField()
     nome = models.CharField(max_length=128, verbose_name="Nome Completo")
     apelido = models.CharField(max_length=64, null=True, blank=True, verbose_name="Apelido")
     ano_de_ingresso = models.IntegerField(null=True, blank=True, verbose_name="Ano de Ingresso")
