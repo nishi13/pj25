@@ -103,7 +103,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="row">
+				<div class="row contact-form">
 					<form action="" method="POST" ENCTYPE="multipart/form-data"> {% csrf_token %}
 				        {% for pergunta in membro_form %}
 				        {% if pergunta.id_for_label == 'id_cargo' %}
@@ -119,18 +119,7 @@
 										{% endfor %}
 									</select><br>
 									<input id="id_cargo_add" type="text" name="cargo_add" maxlength="64">
-									 <script language="Javascript">
-									    var selectmenu=document.getElementById("id_cargo")
-									    selectmenu.onchange=function(){ //run some code when "onchange" event fires
-									     var chosenoption=this.options[this.selectedIndex] //this refers to "selectmenu"
-									     if (chosenoption.value=="--Adicionar--"){
-									      $("#id_cargo_add").show(50);
-									     }
-									     else {
-									      $("#id_cargo_add").hide(50);
-									     }
-									    }
-								    </script>
+									 
 								</div>
 							</div>
 						</div>
@@ -147,7 +136,11 @@
 						{% endif %}
 				        {% endfor %}
 				        <!--{{membro_form.as_p}}-->
-				        <input type="submit">
+				        <div class="col-md-12">
+							<div class="submit-btn">
+				        		<input type="submit" class="largeButton mainBgColor">
+				        	</div>
+				        </div>
 				    </form>
 				</div> <!-- /.row -->
 			</div> <!-- /#about -->
@@ -259,7 +252,7 @@
 				{% endfor %} 
 			</div> <!-- /#portfolio -->
 
-<!--   ................. /#mapa  .................    -->
+<!--   ............................. /#mapa  .............................    -->
 
 
 		{% if evento.local %}
@@ -274,6 +267,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="map-holder">
+							<h3>Endereço: {{evento.local}}</h3>
 							<div class="google-map-canvas" id="map-canvas" style="height: 400px;">
                     		</div>
 						</div> <!-- /.map-holder -->
@@ -381,6 +375,16 @@
         }
 
         window.onload = loadScript;
+	    var selectmenu=document.getElementById("id_cargo")
+	    selectmenu.onchange=function(){ //run some code when "onchange" event fires
+	     var chosenoption=this.options[this.selectedIndex] //this refers to "selectmenu"
+	     if (chosenoption.value=="--Adicionar--"){
+	      $("#id_cargo_add").show(50);
+	     }
+	     else {
+	      $("#id_cargo_add").hide(50);
+	     }
+	    }
     </script>
 
 </body>

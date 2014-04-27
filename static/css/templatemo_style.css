@@ -63,7 +63,7 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Open Sans', Arial, Helvetice Neue, sans-s
 #contact .section-title { border-color: #cb1d62; }
 #contact h2 { background-color: #e3387c; }
 */
-a.largeButton { color: white; text-transform: uppercase; font-weight: 700; font-size: 14px; display: inline-block; padding: 10px 20px; border-bottom: 3px solid; }
+.largeButton { color: white; text-transform: uppercase; font-weight: 700; font-size: 14px; display: inline-block; padding: 10px 20px; border-bottom: 3px solid; }
 
 .homeBgColor { background: #38a9e3; }
 .homeBgColor:hover { background-color: #16709f; }
@@ -184,6 +184,8 @@ a.menu-toggle-btn i { line-height: 60px; }
 .load-more { width: 100%; text-align: center; }
 
 .map-holder { border: 1px solid #d5dbe0; padding: 6px; background-color: #fafafa; }
+.map-holder h3 { text-align: center; }
+
 
 .first-footer { background-color: #495054; padding: 50px; text-align: center; border-left: 5px solid #313639; }
 .first-footer .social-footer ul li { display: inline; }
