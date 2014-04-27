@@ -15,7 +15,13 @@ def home (request):
 	return HttpResponseRedirect('/egplus')
 
 def evento (request, evento_nome):
-    membro_form = MembroForm()
+    if request.method == 'GET':
+        membro_form = MembroForm()
+    else:
+        membro_form = MembroForm(request.POST)
+        if membro_form.is_valid():
+            membro_form.save()
+            membro_form = MembroForm()
     try:
         return render_to_response (evento_nome+'.html', locals(), context_instance = RequestContext(request))
     except :
