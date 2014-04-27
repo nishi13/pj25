@@ -1,3 +1,17 @@
+/* codigo implementado para mudanca dinamica de cor */
+
+.mainBgColor{ background: #004E95; }
+.mainBgColor:hover{ background: #002E75; }
+li.mainBgColor a { border-color: #004E95; }
+li.mainBgColor a.active { color: #004E95; }
+.secBgColor{ background: #FBAA26; }
+.secBgColor:hover{ background: #DB8A06; }
+li.secBgColor a { border-color: #FBAA26; }
+li.secBgColor a.active { color: #FBAA26; }
+
+
+/* codigo do template*/
+
 .main-menu, .responsive-menu ul, .social-member, .progess-bars, .first-footer .social-footer ul { padding: 0; margin: 0; list-style: none; }
 
 body { font: 14px/1.85em 'Open Sans', Arial, Helvetice Neue, sans-serif; color: #777777; font-weight: 300; font-style: normal; -webkit-font-smoothing: antialiased; /* Fix for webkit rendering */ -webkit-text-size-adjust: 100%; }
@@ -29,16 +43,6 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Open Sans', Arial, Helvetice Neue, sans-s
 #contact h2 { background-color: #e3387c; }
 */
 a.largeButton { color: white; text-transform: uppercase; font-weight: 700; font-size: 14px; display: inline-block; padding: 10px 20px; border-bottom: 3px solid; }
-
-.mainBgColor{ background: #004E95; }
-.mainBgColor:hover{ background: #002E75; }
-li.mainBgColor a { border-color: #004E95; }
-li.mainBgColor a.active { color: #004E95; }
-.secBgColor{ background: #FBAA26; }
-.secBgColor:hover{ background: #DB8A06; }
-li.secBgColor a { border-color: #FBAA26; }
-li.secBgColor a.active { color: #FBAA26; }
-
 
 .homeBgColor { background: #38a9e3; }
 .homeBgColor:hover { background-color: #16709f; }
