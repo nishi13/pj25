@@ -25,12 +25,12 @@
         </a>
         <div class="navigation responsive-menu">
             <ul>
-                <li class="home mainBgColor"><a href="#templatemo">Topo</a></li>
-	            <li class="about secBgColor"><a href="#about">Formulário de Interesse</a></li>
-	            <li class="services mainBgColor"><a href="#services">Confirmados</a></li>
-	            <li class="portfolio secBgColor"><a href="#portfolio">Mensagens</a></li>
+                <li class="home "><a href="#templatemo">Topo</a></li>
+	            <li class="about "><a href="#about">Formulário de Interesse</a></li>
+	            <li class="services "><a href="#services">Confirmados</a></li>
+	            <li class="portfolio "><a href="#portfolio">Mensagens</a></li>
 			{% if evento.local %}
-	            <li class="contact mainBgColor"><a href="#contact">Mapa</a></li>
+	            <li class="contact "><a href="#contact">Mapa</a></li>
 	        {% endif %}
             </ul> <!-- /.main_menu -->
         </div> <!-- /.responsive_menu -->
@@ -189,7 +189,7 @@
 					</div> <!-- /.col-md-12 -->
 				</div> <!-- /.row -->
 				{% for mensagem in mensagens %}
-					<div class="row mensagen-row">
+					<div class="row mensage-row">
 						<div class="col-md-3">
 							<div class="member-item">
 								<div class="member-thumb">
@@ -224,7 +224,7 @@
 							{% else %}
 								<h3>Não confirmou presença</h3>
 							{% endif %}
-							<p>{{mensagem.mensagem}}</p>
+							<p class="mensage-text"><em>"{{mensagem.mensagem}}"</em></p>
 						</div>
 					</div><!-- /.row -->
 				{% endfor %} 
@@ -242,12 +242,6 @@
 						</div> <!-- /.section-title -->
 					</div> <!-- /.col-md-12 -->
 				</div> <!-- /.row -->
-
-									<!-- ...............................
-									 nishao, como colocamos o mapa? Imagens? Mudar o models de novo então?
-      								tipo, cada evento tera o seu de qualquer jeito. pode ser só um link para o google maps, ou pode ser a própria imagem do mapa... tipo o que eu mandei no email
-      								 ......................................... -->
-
 				<div class="row">
 					<div class="col-md-12">
 						<div class="map-holder">
@@ -256,29 +250,6 @@
 						</div> <!-- /.map-holder -->
 					</div> <!-- /.col-md-12 -->
 				</div> <!-- /.row -->
-				<div class="row contact-form">
-					<div class="col-md-4">
-						<label for="name-id" class="required">Name:</label>
-						<input name="name-id" type="text" id="name-id" maxlength="40">
-					</div> <!-- /.col-md-4 -->
-					<div class="col-md-4">
-						<label for="email-id" class="required">Email:</label>
-						<input name="email-id" type="text" id="email-id" maxlength="40">
-					</div> <!-- /.col-md-4 -->
-					<div class="col-md-4">
-						<label for="subject-id">Subject:</label>
-						<input name="subject-id" type="text" id="subject-id" maxlength="60">
-					</div> <!-- /.col-md-4 -->
-					<div class="col-md-12">
-						<label for="message-id" class="required">Message:</label>
-						<textarea name="message-id" id="message-id" rows="6"></textarea>
-					</div> <!-- /.col-md-12 -->
-					<div class="col-md-12">
-						<div class="submit-btn">
-							<a href="#" class="largeButton contactBgColor">Send Message</a>
-						</div> <!-- /.submit-btn -->
-					</div> <!-- /.col-md-12 -->
-				</div>
 			</div> <!-- /#contact -->
 			{% endif %}
 
@@ -331,23 +302,23 @@
 	<script src="/static/js/jquery-ui-1.10.4.custom.min.js"></script>
 	<script src="/static/js/custom.js"></script>
 	<script>
-		$(document).ready(function(){
-			$("a[data-gal^='prettyPhoto']").prettyPhoto({hook: 'data-gal'});
-
-			$('#lista-dos-anos').accordion({active: false, collapsible: true});
-			
+		function dinamic_colors(){
 			if ('{{evento.rgb_primario}}') {
 				$('.mainBgColor').css('background','#{{evento.rgb_primario}}');
-				$('.mainBgColor:hover').css('background','#{{evento.rgb_primario}}');
 				$('li.mainBgColor a').css('border-color','#{{evento.rgb_primario}}');
+				$('li.mainBgColor a').css('color','#FFF');
 				$('li.mainBgColor a.active').css('color','#{{evento.rgb_primario}}');
 				$('.secBgColor').css('background','#{{evento.rgb_secundario}}');
-				$('.secBgColor:hover').css('background','#{{evento.rgb_secundario}}');
 				$('li.secBgColor a').css('border-color','#{{evento.rgb_secundario}}');
+				$('li.secBgColor a').css('color','#FFF');
 				$('li.secBgColor a.active').css('color','#{{evento.rgb_secundario}}');
 			};
-
+		};
+		$(document).ready(dinamic_colors);
+		$(document).ready(function(){
+			$('#lista-dos-anos').accordion({active: false, collapsible: true});
 		});
+		$(document).scroll(dinamic_colors);
 		{% if evento.local %}
         function initialize() {
 			var geocoder = new google.maps.Geocoder();
