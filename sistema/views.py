@@ -16,13 +16,25 @@ def home (request):
 
 def evento (request, evento_sigla):
     evento = Evento.objects.get(sigla = evento_sigla)
-    confirmados = Membro.objects.filter(evento=evento)
-    anos = {}
+    imagens = Imagem.objects.filter(evento=evento)
+    confirmados = Membro.objects.filter(evento=evento).filter(confirmado=True).order_by('nome')
+    anos = []
     for pessoa in confirmados:
-		if (anos[pessoa.ano_de_saida]):
-			anos[pessoa.ano_de_saida].append (pessoa)
- 		else:
-            obj[asd.ano]=[asd]
+    	flag = 1
+    	for ano in anos:
+    		if ano == pessoa.ano_de_saida:
+    			flag = 0
+    			break
+    	if flag:
+    		anos.append(pessoa.ano_de_saida)
+    		anos.sort()
+    #anos = {}
+    #for pessoa in confirmados:
+	#	try:
+	#		anos[str(pessoa.ano_de_saida)].append(pessoa)
+	#	except:
+	#		anos[str(pessoa.ano_de_saida)]=[pessoa]
+    
     if request.method == 'GET':
         membro_form = MembroForm()
     else:

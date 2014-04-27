@@ -3,7 +3,7 @@
 <head>
 						<!-- ................. /#colocar variavel .................-->
 
-    <title>Titulo e Subtitulo</title>
+    <title>{{evento.nome}} - {{evento.titulo}}</title>
 	<meta name="keywords" content="sonic, responsive, free template, fluid layout, bootstrap, templatemo" />
 	<meta name="description" content="Sonic is one-page responsive free template using Bootstrap. This layout is suitable for creative portfolio showcase." />
 	<meta charset="utf-8">
@@ -14,6 +14,7 @@
 	<link rel="stylesheet" href="/static/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/static/css/templatemo_misc.css">
 	<link rel="stylesheet" href="/static/css/templatemo_style.css">
+	<link href="/static/css/ui-lightness/jquery-ui-1.10.4.custom.css" rel="stylesheet">
 </head>
 <body>
 	
@@ -35,8 +36,8 @@
 
 	<div id="main-sidebar" class="hidden-xs hidden-sm">
 		<div class="logo">
-			<h1>EG Plus</h1>
-			<span>Conectando Gerações</span>
+			<h1>{{evento.nome}}</h1>
+			<span>{{evento.titulo}}</span>
 		</div> <!-- /.logo -->
 
 		<div class="navigation">
@@ -59,18 +60,15 @@
 			<div class="main-slider">
 				<div class="flexslider">
 					<ul class="slides">
-                    
-
-                    <!-- ................. /#converter nas imagens .................-->
-						<li>
-							<div class="slider-caption">
-								<h2>Titulo da Imagem</h2>
-								<p>Subtitulo</p>
-							</div>
-							<img src="images/slide1.jpg" alt="Slide 1">
-						</li>
-					<!-- ................. /#converter nas imagens .................-->
-
+						{% for imagem in imagens%}
+							<li>
+								<div class="slider-caption">
+									<h2>{{imagem.titulo}}</h2>
+									<p>{{imagem.subtitulo}}</p>
+								</div>
+								<img src="{{imagem.arquivo.url}}"/>
+							</li>
+						{% endfor %}
 					</ul>
 				</div>
 			</div>
@@ -81,7 +79,7 @@
 					
 					<!-- ................. /#colocar variavel .................-->
 
-							<h2>Seja bem vindo ao site de confirmação do TITULO AQUI</h2>
+							<h2>Seja bem vindo ao site de confirmação do {{evento.nome}}</h2>
 							<p>Neste site você pode confirmar presença no formulário abaixo, verificar quem já confirmou e quais mensagens deixou, além de checar as informações do evento e o mapa de como chegar</p>
 						</div>
 					</div>
@@ -97,17 +95,22 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="section-title">
-							<h2>Formulário de Confirmação</h2>
+							<h2>Formulário de Interesse</h2>
 						</div>
 					</div>
 				</div>
 				<div class="row">
 					<form action="" method="POST" > {% csrf_token %}
 				        {% for pergunta in membro_form %}
-			        		<div>
-								<label>{{pergunta.label}}</label>
-			        			{{pergunta}}
-			        		</div>
+			        		<div class="col-md-4">
+								<div class="portfolio-item">
+									<div class="portfolio-thumb">
+										<h3>{{pergunta.label}}</h3>
+			        					{{pergunta}}
+									</div>
+								</div>
+							</div>
+
 				        {% endfor %}
 				        <!--{{membro_form.as_p}}-->
 				        <input type="submit">
@@ -126,15 +129,41 @@
 					</div> <!-- /.col-md-12 -->
 				</div> <!-- /.row -->
 				<div class="row">
-					<div class="lista-dos-anos">
+					<div id="lista-dos-anos">
 						{% for ano in anos %}
 							<h3>{{ano}}</h3>
-							{% for pessoa in confirmados %}
-								{% if pessoa.ano_de_saida == ano %}
-									<div>{{pessoa.apelido}}</div>
-								{% endif%}
-							{% endfor %}
-							
+							<div>
+								{% for pessoa in confirmados %}
+									{% if pessoa.ano_de_saida == ano %}
+										<div class="col-md-4">
+											<div class="member-item">
+												{% if pessoa.foto %}
+													<div class="member-thumb">
+														<img src={{pessoa.foto.url}} alt="girl 1">
+														<div class="overlay">
+															<ul class="social-member">
+																{% if pessoa.facebook %}
+																<li><a href={{pessoa.facebook}} class="fa fa-facebook"></a></li>
+																{% endif %}
+																{% if pessoa.twitter %}
+																<li><a href={{pessoa.twitter}} class="fa fa-twitter"></a></li>
+																{% endif %}
+																{% if pessoa.linkedin %}
+																<li><a href={{pessoa.linkedin}} class="fa fa-linkedin"></a></li>
+																{% endif %}
+															</ul>
+														</div>
+													</div>
+												{% endif %}
+												<div class="member-content">
+													<h4>{{pessoa.nome}}</h4>
+													<p>{{pessoa.apelido}} - {{pessoa.cargo}}</p>
+												</div>
+											</div>
+										</div><!-- /.col-md-4 -->
+									{% endif %}
+								{% endfor %}
+							</div>
 						{% endfor %}
 						
 					</div>
@@ -148,111 +177,36 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="section-title">
-							<h2>Portfolio</h2>
+							<h2>Informações Gerais</h2>
 						</div> <!-- /.section-title -->
 					</div> <!-- /.col-md-12 -->
 				</div> <!-- /.row -->
+
+<!--   ................. o que raios colocamos aqui nishao? .................    -->
+
 				<div class="row">
-					<div class="col-md-4">
-						<div class="portfolio-item">
-							<div class="portfolio-thumb">
-								<img src="images/portfolio/1.jpg" alt="Fantasy">
-								<div class="overlay-p">
-									<a href="images/portfolio/1.jpg" data-gal="prettyPhoto">
-										<i class="fa fa-arrows-alt fa-2x"></i>
-									</a>
-								</div>
-							</div> <!-- /.portfolio-thumb -->
-							<h3 class="portfolio-title"><a href="#">Fantasy</a></h3>
-						</div> <!-- /.portfolio-item -->
-					</div> <!-- /.col-md-4 -->
-					<div class="col-md-4">
-						<div class="portfolio-item">
-							<div class="portfolio-thumb">
-								<img src="images/portfolio/2.jpg" alt="Botany">
-								<div class="overlay-p">
-									<a href="images/portfolio/2.jpg" data-gal="prettyPhoto">
-										<i class="fa fa-arrows-alt fa-2x"></i>
-									</a>
-								</div>
-							</div> <!-- /.portfolio-thumb -->
-							<h3 class="portfolio-title"><a href="#">Botany</a></h3>
-						</div> <!-- /.portfolio-item -->
-					</div> <!-- /.col-md-4 -->
-					<div class="col-md-4">
-						<div class="portfolio-item">
-							<div class="portfolio-thumb">
-								<img src="images/portfolio/3.jpg" alt="Universe">
-								<div class="overlay-p">
-									<a href="images/portfolio/3.jpg" data-gal="prettyPhoto">
-										<i class="fa fa-arrows-alt fa-2x"></i>
-									</a>
-								</div>
-							</div> <!-- /.portfolio-thumb -->
-							<h3 class="portfolio-title"><a href="#">Universe</a></h3>
-						</div> <!-- /.portfolio-item -->
-					</div> <!-- /.col-md-4 -->
+					As informações gerais deveriam vir aqui
 				</div> <!-- /.row -->
-				<div class="row">
-					<div class="col-md-4">
-						<div class="portfolio-item">
-							<div class="portfolio-thumb">
-								<img src="images/portfolio/4.jpg" alt="Channel">
-								<div class="overlay-p">
-									<a href="images/portfolio/4.jpg" data-gal="prettyPhoto">
-										<i class="fa fa-arrows-alt fa-2x"></i>
-									</a>
-								</div>
-							</div> <!-- /.portfolio-thumb -->
-							<h3 class="portfolio-title"><a href="#">Channel</a></h3>
-						</div> <!-- /.portfolio-item -->
-					</div> <!-- /.col-md-4 -->
-					<div class="col-md-4">
-						<div class="portfolio-item">
-							<div class="portfolio-thumb">
-								<img src="images/portfolio/5.jpg" alt="Dragonfly">
-								<div class="overlay-p">
-									<a href="images/portfolio/5.jpg" data-gal="prettyPhoto">
-										<i class="fa fa-arrows-alt fa-2x"></i>
-									</a>
-								</div>
-							</div> <!-- /.portfolio-thumb -->
-							<h3 class="portfolio-title"><a href="#">Dragonfly</a></h3>
-						</div> <!-- /.portfolio-item -->
-					</div> <!-- /.col-md-4 -->
-					<div class="col-md-4">
-						<div class="portfolio-item">
-							<div class="portfolio-thumb">
-								<img src="images/portfolio/6.jpg" alt="Titanium">
-								<div class="overlay-p">
-									<a href="images/portfolio/6.jpg" data-gal="prettyPhoto">
-										<i class="fa fa-arrows-alt fa-2x"></i>
-									</a>
-								</div>
-							</div> <!-- /.portfolio-thumb -->
-							<h3 class="portfolio-title"><a href="#">Titanium</a></h3>
-						</div> <!-- /.portfolio-item -->
-					</div> <!-- /.col-md-4 -->
-				</div> <!-- /.row -->
-				<div class="row">
-					<div class="col-md-12">
-						<div class="load-more">
-							<a href="#portfolio" class="largeButton portfolioBgColor">Load More</a>
-						</div>
-					</div>
-				</div>
+				
 			</div> <!-- /#portfolio -->
 
 <!--   ................. /#mapa  .................    -->
+
 
 			<div id="contact" class="section-content">
 				<div class="row">
 					<div class="col-md-12">
 						<div class="section-title">
-							<h2>Contact Us</h2>
+							<h2>Mapa</h2>
 						</div> <!-- /.section-title -->
 					</div> <!-- /.col-md-12 -->
 				</div> <!-- /.row -->
+
+									<!-- ...............................
+									 nishao, como colocamos o mapa? Imagens? Mudar o models de novo então?
+      								tipo, cada evento tera o seu de qualquer jeito. pode ser só um link para o google maps, ou pode ser a própria imagem do mapa... tipo o que eu mandei no email
+      								 ......................................... -->
+
 				<div class="row">
 					<div class="col-md-12">
 						<div class="map-holder">
@@ -294,6 +248,9 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="social-footer">
+
+<!-- ............................... nishao, o que colocamos no footer? ......................................... -->
+
 								<ul>
 									<li><a href="#" class="fa fa-facebook"></a></li>
 									<li><a href="#" class="fa fa-twitter"></a></li>
@@ -310,7 +267,7 @@
 				<div class="container-fluid">
 					<div class="row">
 						<div class="col-md-6">
-							<p class="copyright">Copyright © 2084 <a href="#">Your Company Name</a>
+							<p class="copyright">Copyright © 2014 <a href="http://www.polijr.com.br/">Poli Júnior</a>
                             </p>
 						</div> <!-- /.col-md-6 -->
 						<div class="col-md-6 credits">
@@ -325,14 +282,18 @@
 	</div> <!-- /#main-content -->
 
 	<!-- JavaScripts -->
-	<script src="/static/js/jquery-1.10.2.min.js"></script>
+	<script src="/static/js/jquery-1.10.2.js"></script>
 	<script src="/static/js/jquery.singlePageNav.js"></script>
 	<script src="/static/js/jquery.flexslider.js"></script>
 	<script src="/static/js/jquery.prettyPhoto.js"></script>
+	<script src="/static/js/jquery-ui-1.10.4.custom.min.js"></script>
 	<script src="/static/js/custom.js"></script>
 	<script>
 		$(document).ready(function(){
 			$("a[data-gal^='prettyPhoto']").prettyPhoto({hook: 'data-gal'});
+
+			$('#lista-dos-anos').accordion({active: false, collapsible: true});
+
 		});
 
         function initialize() {

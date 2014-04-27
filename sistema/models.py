@@ -12,12 +12,17 @@ def upload_css (instance, filename):
 def upload_logo (instance, filename):
     ext = filename.split('.')[-1]
     filename = "%s.%s" % (instance, ext)
-    return os.path.join('static/logo', filename)
+    return os.path.join('static/images/logo', filename)
 
 def upload_imagem (instance, filename):
     ext = filename.split('.')[-1]
     filename = "%s.%s" % (instance.id, ext)
-    return os.path.join('static/logo', filename)
+    return os.path.join('static/images/fotos', filename)
+
+def upload_perfil (instance, filename):
+    ext = filename.split('.')[-1]
+    filename = "%s.%s" % (instance.id, ext)
+    return os.path.join('static/images/perfil', filename)
 
 class Cargo(models.Model):
     nome = models.CharField(max_length=64, verbose_name="Cargo / Ultimo Cargo", primary_key=True)
@@ -39,19 +44,24 @@ class Evento(models.Model):
         return self.sigla
 
 class Membro(models.Model):
-    confirmado = models.BooleanField()
     nome = models.CharField(max_length=128, verbose_name="Nome Completo")
     apelido = models.CharField(max_length=64, null=True, blank=True, verbose_name="Apelido")
     ano_de_ingresso = models.IntegerField(null=True, blank=True, verbose_name="Ano de Ingresso")
     ano_de_saida = models.IntegerField(null=True, blank=True, verbose_name="Ano de Saida")
     email = models.EmailField(max_length=128, verbose_name="E-mail")
     cargo = models.ForeignKey(Cargo, null=True, blank=True)
+    facebook = models.URLField(max_length=256, null=True, blank=True)
+    twitter = models.URLField(max_length=256, null=True, blank=True)
+    linkedin = models.URLField(max_length=256, null=True, blank=True)
+    foto = models.FileField(upload_to=upload_perfil, null=True, blank=True)
+    confirmado = models.BooleanField()
     evento = models.ForeignKey(Evento)
     
     def __unicode__(self):
         return self.nome
 
 class Imagem(models.Model):
+    evento = models.ForeignKey(Evento);
     titulo = models.CharField(max_length=128, verbose_name="Titulo", null=True, blank=True)
     subtitulo = models.CharField(max_length=128, verbose_name="Titulo", null=True, blank=True)
     arquivo = models.FileField(upload_to=upload_imagem)
