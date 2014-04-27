@@ -45,7 +45,7 @@ class Evento(models.Model):
     rgb_primario = models.CharField(max_length=6, null=True, blank=True, verbose_name="RGB Primario")
     rgb_secundario = models.CharField(max_length=6, null=True, blank=True, verbose_name="RGB Secundario")
     logo = models.FileField(upload_to=upload_logo, null=True, blank=True)
-    local = models.CharField(max_length=256, verbose_name="Local")
+    local = models.CharField(max_length=256, verbose_name="Local", null=True, blank=True)
     template = models.FileField(upload_to=upload_template, null=True, blank=True)
     css = models.FileField(upload_to=upload_css, null=True, blank=True)
 
