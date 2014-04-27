@@ -105,7 +105,11 @@
 			        		<div class="col-md-4">
 								<div class="portfolio-item">
 									<div class="portfolio-thumb">
-										<h3>{{pergunta.label}}</h3>
+										{% if pergunta.label == "Mensagem" || pergunta.label == "Facebook" %}
+											<h3 class="left-form">{{pergunta.label}}</h3>
+										{% else %}
+											<h3>{{pergunta.label}}</h3>
+										{% endif %}
 			        					{{pergunta}}
 									</div>
 								</div>
