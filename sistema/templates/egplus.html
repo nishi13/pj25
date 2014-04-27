@@ -25,28 +25,28 @@
         </a>
         <div class="navigation responsive-menu">
             <ul>
-                <li class="home"><a href="#templatemo">Topo</a></li>
-	            <li class="about"><a href="#about">Formulário de Interesse</a></li>
-	            <li class="services"><a href="#services">Confirmados</a></li>
-	            <li class="portfolio"><a href="#portfolio">Informações Gerais</a></li>
-	            <li class="contact"><a href="#contact">Mapa</a></li>
+                <li class="home mainBgColor"><a href="#templatemo">Topo</a></li>
+	            <li class="about secBgColor"><a href="#about">Formulário de Interesse</a></li>
+	            <li class="services mainBgColor"><a href="#services">Confirmados</a></li>
+	            <li class="portfolio secBgColor"><a href="#portfolio">Informações Gerais</a></li>
+	            <li class="contact mainBgColor"><a href="#contact">Mapa</a></li>
             </ul> <!-- /.main_menu -->
         </div> <!-- /.responsive_menu -->
     </div> <!-- /responsive_navigation -->
 
 	<div id="main-sidebar" class="hidden-xs hidden-sm">
-		<div class="logo">
+		<div class="logo mainBgColor">
 			<h1>{{evento.nome}}</h1>
 			<span>{{evento.titulo}}</span>
 		</div> <!-- /.logo -->
 
 		<div class="navigation">
 	        <ul class="main-menu">
-	            <li class="home"><a href="#templatemo">Topo</a></li>
-	            <li class="about"><a href="#about">Formulário de Interesse</a></li>
-	            <li class="services"><a href="#services">Confirmados</a></li>
-	            <li class="portfolio"><a href="#portfolio">Informações Gerais</a></li>
-	            <li class="contact"><a href="#contact">Mapa</a></li>
+	            <li class="home mainBgColor"><a href="#templatemo">Topo</a></li>
+	            <li class="about secBgColor"><a href="#about">Formulário de Interesse</a></li>
+	            <li class="services mainBgColor"><a href="#services">Confirmados</a></li>
+	            <li class="portfolio secBgColor"><a href="#portfolio">Informações Gerais</a></li>
+	            <li class="contact mainBgColor"><a href="#contact">Mapa</a></li>
 	        </ul>
 		</div> <!-- /.navigation -->
 
@@ -66,7 +66,7 @@
 									<h2>{{imagem.titulo}}</h2>
 									<p>{{imagem.subtitulo}}</p>
 								</div>
-								<img src="{{imagem.arquivo.url}}"/>
+								<img src="{{imagem.arquivo}}">
 							</li>
 						{% endfor %}
 					</ul>
@@ -79,7 +79,7 @@
 					
 					<!-- ................. /#colocar variavel .................-->
 
-							<h2>Seja bem vindo ao site de confirmação do {{evento.nome}}</h2>
+							<h2  class="mainBgColor">Seja bem vindo ao site de confirmação do {{evento.nome}}</h2>
 							<p>Neste site você pode confirmar presença no formulário abaixo, verificar quem já confirmou e quais mensagens deixou, além de checar as informações do evento e o mapa de como chegar</p>
 						</div>
 					</div>
@@ -95,7 +95,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="section-title">
-							<h2>Formulário de Interesse</h2>
+							<h2 class="secBgColor">Formulário de Interesse</h2>
 						</div>
 					</div>
 				</div>
@@ -124,7 +124,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="section-title">
-							<h2>Confirmados</h2>
+							<h2 class="mainBgColor">Confirmados</h2>
 						</div> <!-- /.section-title -->
 					</div> <!-- /.col-md-12 -->
 				</div> <!-- /.row -->
@@ -177,7 +177,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="section-title">
-							<h2>Informações Gerais</h2>
+							<h2 class="secBgColor">Informações Gerais</h2>
 						</div> <!-- /.section-title -->
 					</div> <!-- /.col-md-12 -->
 				</div> <!-- /.row -->
@@ -197,7 +197,7 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="section-title">
-							<h2>Mapa</h2>
+							<h2 class="mainBgColor">Mapa</h2>
 						</div> <!-- /.section-title -->
 					</div> <!-- /.col-md-12 -->
 				</div> <!-- /.row -->
@@ -293,6 +293,25 @@
 			$("a[data-gal^='prettyPhoto']").prettyPhoto({hook: 'data-gal'});
 
 			$('#lista-dos-anos').accordion({active: false, collapsible: true});
+
+			$('.mainBgColor').css('background','#'+{{evento.rgb_primario}});
+			//$('.mainBgColor:hover').css('background','#'.concat({{evento.rgb_primario}}));
+			//$('li.mainBgColor a').css('border-color','#'.concat({{evento.rgb_primario}}));
+			//$('li.mainBgColor a.active').css('color','#'.concat({{evento.rgb_primario}}));
+			//$('.secBgColor').css('background','#'.concat({{evento.rgb_secundario}}));
+			//$('.secBgColor:hover').css('background','#'.concat({{evento.rgb_secundario}}));
+			//$('li.secBgColor a').css('border-color','#'.concat({{evento.rgb_secundario}}));
+			//$('li.secBgColor a.active').css('color','#'.concat({{evento.rgb_secundario}}));
+
+
+			//.mainBgColor{ background: #004E95; }
+			//.mainBgColor:hover{ background: #002E75; }
+			//li.mainBgColor a { border-color: #004E95; }
+			//li.mainBgColor a.active { color: #004E95; }
+			//.secBgColor{ background: #FBAA26; }
+			//.secBgColor:hover{ background: #DB8A06; }
+			//li.secBgColor a { border-color: #FBAA26; }
+			//li.secBgColor a.active { color: #FBAA26; }
 
 		});
 

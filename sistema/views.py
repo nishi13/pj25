@@ -28,13 +28,6 @@ def evento (request, evento_sigla):
     	if flag:
     		anos.append(pessoa.ano_de_saida)
     		anos.sort()
-    #anos = {}
-    #for pessoa in confirmados:
-	#	try:
-	#		anos[str(pessoa.ano_de_saida)].append(pessoa)
-	#	except:
-	#		anos[str(pessoa.ano_de_saida)]=[pessoa]
-    
     if request.method == 'GET':
         membro_form = MembroForm()
     else:

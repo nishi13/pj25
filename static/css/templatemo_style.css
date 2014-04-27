@@ -15,6 +15,7 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Open Sans', Arial, Helvetice Neue, sans-s
 .section-title { border-top: 4px solid; margin-bottom: 60px; }
 .section-title h2 { display: inline-block; padding: 20px 35px; color: white; text-transform: uppercase; font-weight: 300; margin: 0; font-size: 20px; }
 
+/*
 #about .section-title { border-color: #e09d1a; }
 #about h2 { background-color: #e9b144; }
 
@@ -26,8 +27,18 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Open Sans', Arial, Helvetice Neue, sans-s
 
 #contact .section-title { border-color: #cb1d62; }
 #contact h2 { background-color: #e3387c; }
-
+*/
 a.largeButton { color: white; text-transform: uppercase; font-weight: 700; font-size: 14px; display: inline-block; padding: 10px 20px; border-bottom: 3px solid; }
+
+.mainBgColor{ background: #004E95; }
+.mainBgColor:hover{ background: #002E75; }
+li.mainBgColor a { border-color: #004E95; }
+li.mainBgColor a.active { color: #004E95; }
+.secBgColor{ background: #FBAA26; }
+.secBgColor:hover{ background: #DB8A06; }
+li.secBgColor a { border-color: #FBAA26; }
+li.secBgColor a.active { color: #FBAA26; }
+
 
 .homeBgColor { background: #38a9e3; }
 .homeBgColor:hover { background-color: #16709f; }
@@ -46,15 +57,16 @@ a.largeButton.contactBgColor { border-color: #9f164d; }
 
 #main-sidebar { float: left; width: 23%; height: 100%; position: fixed; background-color: #495054; color: white; }
 
-.logo { margin: 100px 0; background-color: #38a9e3; padding: 25px 40px; color: white; }
-.logo h1 { text-transform: uppercase; font-size: 30px; margin: 0; font-weight: 800; }
-.logo span { color: white; font-size: 13px; }
+.logo { margin: 100px 0; padding: 25px 40px; }
+.logo a { color: white; }
+.logo a h1 { text-transform: uppercase; font-size: 30px; margin: 0; font-weight: 800; }
+.logo span { color: #bee3f6; font-size: 13px; }
 
 .main-menu { text-align: center; }
 .main-menu li { margin-bottom: 1px; }
 .main-menu li a { color: white; text-transform: uppercase; display: block; border-left: 4px solid; padding: 15px 30px; background-color: #383e41; -webkit-transition: all 150ms ease-in; -moz-transition: all 150ms ease-in; -o-transition: all 150ms ease-in; transition: all 150ms ease-in; }
 .main-menu li a:hover { background-color: #34393b; }
-
+/*
 li.home a { border-color: #38a9e3; }
 li.home a.active { color: #38a9e3; }
 
@@ -69,29 +81,7 @@ li.portfolio a.active { color: #38e395; }
 
 li.contact a { border-color: #e3387c; }
 li.contact a.active { color: #e3387c; }
-
-/*
-form div{
-	display: inline-block;
-	width: 25%;
-}
-
-form div label{
-	display: block;
-}
-form div input{
-	display: inline-block;
-}
-form div select{
-	display: inline-block;
-}
-form input {
-	margin-top: 30px;
-	margin-left: auto;
-	margin-right: auto;
-	display: block;
-}*/
-
+*/
 a.menu-toggle-btn { width: 100%; height: 60px; background-color: #38a9e3; text-align: center; line-height: 60px; display: block; color: white; }
 a.menu-toggle-btn i { line-height: 60px; }
 
@@ -120,7 +110,7 @@ a.menu-toggle-btn i { line-height: 60px; }
 
 .welcome-text { padding: 60px; text-align: center; }
 .welcome-text a { color: #38a9e3; }
-.welcome-text h2 { color: #38a9e3; font-weight: 300; text-transform: uppercase; font-size: 32px; }
+.welcome-text h2 { color: #FFF; font-weight: 300; text-transform: uppercase; font-size: 32px; }
 .welcome-text p { color: #aaaaaa; }
 
 .member-item { overflow: hidden; height: auto; }
