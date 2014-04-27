@@ -137,24 +137,26 @@
 									{% if pessoa.ano_de_saida == ano %}
 										<div class="col-md-4">
 											<div class="member-item">
-												{% if pessoa.foto %}
-													<div class="member-thumb">
+												<div class="member-thumb">
+													{% if pessoa.foto %}
 														<img src={{pessoa.foto.url}} alt="girl 1">
-														<div class="overlay">
-															<ul class="social-member">
-																{% if pessoa.facebook %}
-																<li><a href={{pessoa.facebook}} class="fa fa-facebook"></a></li>
-																{% endif %}
-																{% if pessoa.twitter %}
-																<li><a href={{pessoa.twitter}} class="fa fa-twitter"></a></li>
-																{% endif %}
-																{% if pessoa.linkedin %}
-																<li><a href={{pessoa.linkedin}} class="fa fa-linkedin"></a></li>
-																{% endif %}
-															</ul>
-														</div>
+													{% else %}
+														<img src="/static/img/guy.png" alt="girl 1">
+													{% endif %}
+													<div class="overlay">
+														<ul class="social-member">
+															{% if pessoa.facebook %}
+															<li><a href={{pessoa.facebook}} class="fa fa-facebook"></a></li>
+															{% endif %}
+															{% if pessoa.twitter %}
+															<li><a href={{pessoa.twitter}} class="fa fa-twitter"></a></li>
+															{% endif %}
+															{% if pessoa.linkedin %}
+															<li><a href={{pessoa.linkedin}} class="fa fa-linkedin"></a></li>
+															{% endif %}
+														</ul>
 													</div>
-												{% endif %}
+												</div>
 												<div class="member-content">
 													<h4>{{pessoa.nome}}</h4>
 													<p>{{pessoa.apelido}} - {{pessoa.cargo}}</p>

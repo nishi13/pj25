@@ -11,9 +11,6 @@ from sistema.forms import *
 from sistema.models import *
 
 # functions
-def home (request):
-	return HttpResponseRedirect('/egplus')
-
 def evento (request, evento_sigla):
     evento = Evento.objects.get(sigla = evento_sigla)
     imagens = Imagem.objects.filter(evento=evento)
@@ -37,6 +34,7 @@ def evento (request, evento_sigla):
             membro.evento = evento
             membro.save()
             membro_form = MembroForm()
+            return HttpResponseRedirect('/'+evento_sigla+'/#services')
     try:
         return render_to_response (evento_sigla+'.html', locals(), context_instance = RequestContext(request))
     except :

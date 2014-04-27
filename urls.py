@@ -12,8 +12,6 @@ admin.autodiscover()
 urlpatterns = patterns('',
 
 	# EgPlus: -----------------------------------------------------------------------------------------------------
-
-	(r'^$','sistema.views.home'),
     
     (r'^admin/', include(admin.site.urls)),
     (r'^(?P<evento_sigla>[0-9a-zA-Z]+)/$','sistema.views.evento'),
