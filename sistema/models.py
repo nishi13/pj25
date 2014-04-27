@@ -44,9 +44,10 @@ class Evento(models.Model):
     titulo = models.CharField(max_length=128, verbose_name="Titulo")
     rgb_primario = models.CharField(max_length=6, null=True, blank=True, verbose_name="RGB Primario")
     rgb_secundario = models.CharField(max_length=6, null=True, blank=True, verbose_name="RGB Secundario")
+    logo = models.FileField(upload_to=upload_logo, null=True, blank=True)
+    local = models.CharField(max_length=256, verbose_name="Local")
     template = models.FileField(upload_to=upload_template, null=True, blank=True)
     css = models.FileField(upload_to=upload_css, null=True, blank=True)
-    logo = models.FileField(upload_to=upload_logo, null=True, blank=True)
 
     def __unicode__(self):
         return self.sigla
@@ -55,7 +56,7 @@ class Membro(models.Model):
     nome = models.CharField(max_length=128, verbose_name="Nome Completo *")
     apelido = models.CharField(max_length=64, null=True, blank=True, verbose_name="Apelido")
     ano_de_ingresso = models.IntegerField(null=True, blank=True, verbose_name="Ano de Ingresso")
-    ano_de_saida = models.IntegerField(verbose_name="Ano de Saida *")
+    ano_de_saida = models.IntegerField(verbose_name="Ano de Saida *", null=True, blank=True)
     email = models.EmailField(max_length=128, verbose_name="E-mail *")
     cargo = models.ForeignKey(Cargo, null=True, blank=True)
     facebook = models.URLField(max_length=256, null=True, blank=True)
@@ -64,6 +65,7 @@ class Membro(models.Model):
     foto = models.FileField(upload_to=upload_perfil, null=True, blank=True)
     mensagem = models.TextField(max_length=1024, verbose_name="Mensagem", null=True, blank=True)
     confirmado = models.BooleanField()
+    horario_do_submit = models.DateTimeField(auto_now = True)
     evento = models.ForeignKey(Evento)
     
     def __unicode__(self):

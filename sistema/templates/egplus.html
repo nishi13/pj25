@@ -28,7 +28,7 @@
                 <li class="home mainBgColor"><a href="#templatemo">Topo</a></li>
 	            <li class="about secBgColor"><a href="#about">Formulário de Interesse</a></li>
 	            <li class="services mainBgColor"><a href="#services">Confirmados</a></li>
-	            <li class="portfolio secBgColor"><a href="#portfolio">Informações Gerais</a></li>
+	            <li class="portfolio secBgColor"><a href="#portfolio">Mensagens</a></li>
 	            <li class="contact mainBgColor"><a href="#contact">Mapa</a></li>
             </ul> <!-- /.main_menu -->
         </div> <!-- /.responsive_menu -->
@@ -45,7 +45,7 @@
 	            <li class="home mainBgColor"><a href="#templatemo">Topo</a></li>
 	            <li class="about secBgColor"><a href="#about">Formulário de Interesse</a></li>
 	            <li class="services mainBgColor"><a href="#services">Confirmados</a></li>
-	            <li class="portfolio secBgColor"><a href="#portfolio">Informações Gerais</a></li>
+	            <li class="portfolio secBgColor"><a href="#portfolio">Mensagens</a></li>
 	            <li class="contact mainBgColor"><a href="#contact">Mapa</a></li>
 	        </ul>
 		</div> <!-- /.navigation -->
@@ -174,19 +174,16 @@
 				
 			</div> <!-- /#services -->
 
-<!--   ................. /#informacoes gerais  .................    -->
+<!--   ................. /#mensagens  .................    -->
 
 			<div id="portfolio" class="section-content">
 				<div class="row">
 					<div class="col-md-12">
 						<div class="section-title">
-							<h2 class="secBgColor">Informações Gerais</h2>
+							<h2 class="secBgColor">Mensagens</h2>
 						</div> <!-- /.section-title -->
 					</div> <!-- /.col-md-12 -->
 				</div> <!-- /.row -->
-
-<!--   ................. o que raios colocamos aqui nishao? .................    -->
-
 				<div class="row">
 					As informações gerais deveriam vir aqui
 				</div> <!-- /.row -->
@@ -296,25 +293,17 @@
 			$("a[data-gal^='prettyPhoto']").prettyPhoto({hook: 'data-gal'});
 
 			$('#lista-dos-anos').accordion({active: false, collapsible: true});
-
-			$('.mainBgColor').css('background','#{{evento.rgb_primario}}');
-			$('.mainBgColor:hover').css('background','#{{evento.rgb_primario}}');
-			$('li.mainBgColor a').css('border-color','#{{evento.rgb_primario}}');
-			$('li.mainBgColor a.active').css('color','#{{evento.rgb_primario}}');
-			$('.secBgColor').css('background','#{{evento.rgb_secundario}}');
-			$('.secBgColor:hover').css('background','#{{evento.rgb_secundario}}');
-			$('li.secBgColor a').css('border-color','#{{evento.rgb_secundario}}');
-			$('li.secBgColor a.active').css('color','#{{evento.rgb_secundario}}');
-
-
-			//.mainBgColor{ background: #004E95; }
-			//.mainBgColor:hover{ background: #002E75; }
-			//li.mainBgColor a { border-color: #004E95; }
-			//li.mainBgColor a.active { color: #004E95; }
-			//.secBgColor{ background: #FBAA26; }
-			//.secBgColor:hover{ background: #DB8A06; }
-			//li.secBgColor a { border-color: #FBAA26; }
-			//li.secBgColor a.active { color: #FBAA26; }
+			
+			if ('{{evento.rgb_primario}}') {
+				$('.mainBgColor').css('background','#{{evento.rgb_primario}}');
+				$('.mainBgColor:hover').css('background','#{{evento.rgb_primario}}');
+				$('li.mainBgColor a').css('border-color','#{{evento.rgb_primario}}');
+				$('li.mainBgColor a.active').css('color','#{{evento.rgb_primario}}');
+				$('.secBgColor').css('background','#{{evento.rgb_secundario}}');
+				$('.secBgColor:hover').css('background','#{{evento.rgb_secundario}}');
+				$('li.secBgColor a').css('border-color','#{{evento.rgb_secundario}}');
+				$('li.secBgColor a.active').css('color','#{{evento.rgb_secundario}}');
+			};
 
 		});
 

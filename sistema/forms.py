@@ -6,4 +6,4 @@ from sistema.models import *
 class MembroForm (forms.ModelForm):
     class Meta :
         model = Membro
-        exclude = ('evento')
+        exclude = ('horario_do_submit','evento')
