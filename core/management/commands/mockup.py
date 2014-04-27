@@ -11,24 +11,28 @@ membros = [
         'ano_de_ingresso' : '2011', 
         'ano_de_saida' : '2014',
         'email' : 'augusto.nishi@gmail.com',
+        'mensagem' : 'Oi =D'
     },{
         'nome' : 'Pedro Martinez',
         'apelido' : 'Pedrao',
         'ano_de_ingresso' : '2012', 
         'ano_de_saida' : '2015',
         'email' : 'pvsmartinez@gmail.com',
+        'mensagem' : 'Ola'
     },{
         'nome' : 'Milena Ming Perez',
         'apelido' : 'Ming',
         'ano_de_ingresso' : '2010', 
         'ano_de_saida' : '2013',
         'email' : 'mmpmilena@gmail.com',
+        'mensagem' : '<span style="color:#FF00BF;font-weight:bold">Oiiiiiiiiiii!!!</span>'
     },{
         'nome' : 'Joao Ninguem',
         'apelido' : 'Joao',
         'ano_de_ingresso' : '2008', 
         'ano_de_saida' : '2008',
         'email' : 'joao@ninguem.com',
+        'mensagem' : 'Ninguem e perfeito'
     }
 ]
 
