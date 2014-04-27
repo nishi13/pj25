@@ -16,7 +16,4 @@ def home (request):
 
 def evento (request, evento_nome):
     membro_form = MembroForm()
-    try:
-        return render_to_response (evento_nome+'.html', locals(), context_instance = RequestContext(request))
-    except :
-        return render_to_response ('base.html', locals(), context_instance = RequestContext(request))
+    return render_to_response ('egplus.html', locals(), context_instance = RequestContext(request))
