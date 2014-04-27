@@ -63,8 +63,8 @@ class Membro(models.Model):
     twitter = models.URLField(max_length=256, null=True, blank=True)
     linkedin = models.URLField(max_length=256, null=True, blank=True)
     foto = models.FileField(upload_to=upload_perfil, null=True, blank=True)
-    mensagem = models.TextField(max_length=1024, verbose_name="Mensagem", null=True, blank=True)
     confirmado = models.BooleanField()
+    mensagem = models.TextField(max_length=1024, verbose_name="Mensagem", null=True, blank=True)
     horario_do_submit = models.DateTimeField(auto_now = True)
     evento = models.ForeignKey(Evento)
     

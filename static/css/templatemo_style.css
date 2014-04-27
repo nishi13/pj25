@@ -16,6 +16,7 @@ li.secBgColor a.active { color: #FBAA26; }
 .contact-form input { height: 46px; margin-bottom: 30px; }
 .contact-form label { font-weight: normal; }
 .contact-form label.required:after { content: "*"; color: red; margin-left: 5px; }
+.contact-form textarea {height: 150px; }
 
 .submit-btn { margin-top: 30px; }
 
@@ -169,7 +170,7 @@ a.menu-toggle-btn i { line-height: 60px; }
 
 .progress-bar { background-color: #974dea; text-transform: uppercase; font-size: 12px; }
 
-.portfolio-thumb { overflow: hidden; position: relative; }
+.portfolio-thumb { overflow: hidden; position: relative; height: 150px; }
 .portfolio-thumb img { width: 100%; height: auto; }
 .portfolio-thumb .overlay-p { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(56, 227, 149, 0.9); visibility: hidden; opacity: 0; -webkit-transition: all 0.2s ease-in-out; -moz-transition: all 0.2s ease-in-out; -ms-transition: all 0.2s ease-in-out; -o-transition: all 0.2s ease-in-out; transition: all 0.2s ease-in-out; }
 .portfolio-thumb .overlay-p a { position: absolute; top: 50%; margin-top: -12px; left: 50%; margin-left: -15px; color: white; }

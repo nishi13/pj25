@@ -124,14 +124,17 @@
 							</div>
 						</div>
 				        {% else %}
-			        		<div class="col-md-4">
-								<div class="portfolio-item">
-									<div class="portfolio-thumb">
-										
-										<h3>{{pergunta.label}}</h3>
-			        					{{pergunta}}
+							{% if pergunta.label == "Mensagem" %}
+			        			<div class="col-md-12">
+		        			{% else %}
+		        				{% if pergunta.label == "Foto" %}
+									<div class="col-md-2">
 									</div>
-								</div>
+								{% endif %}
+								<div class="col-md-4">
+							{% endif %}
+									<h3>{{pergunta.label}}</h3>
+		        					{{pergunta}}
 							</div>
 						{% endif %}
 				        {% endfor %}
