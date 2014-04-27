@@ -36,7 +36,7 @@ class Evento(models.Model):
     logo = models.FileField(upload_to=upload_logo, null=True, blank=True)
 
     def __unicode__(self):
-        return self.nome
+        return self.sigla
 
 class Membro(models.Model):
     nome = models.CharField(max_length=128, verbose_name="Nome Completo")
@@ -44,7 +44,7 @@ class Membro(models.Model):
     ano_de_ingresso = models.IntegerField(null=True, blank=True, verbose_name="Ano de Ingresso")
     ano_de_saida = models.IntegerField(null=True, blank=True, verbose_name="Ano de Saida")
     email = models.EmailField(max_length=128, verbose_name="E-mail")
-    cargo = models.ForeignKey(Cargo)
+    cargo = models.ForeignKey(Cargo, null=True, blank=True)
     evento = models.ForeignKey(Evento)
     
     def __unicode__(self):

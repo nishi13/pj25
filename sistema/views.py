@@ -14,16 +14,19 @@ from sistema.models import *
 def home (request):
 	return HttpResponseRedirect('/egplus')
 
-def evento (request, evento_nome):
+def evento (request, evento_sigla):
     membro_form = MembroForm()
     if request.method == 'GET':
         membro_form = MembroForm()
     else:
         membro_form = MembroForm(request.POST)
         if membro_form.is_valid():
-            membro_form.save()
+            evento = Evento.objects.get(sigla = evento_sigla)
+            membro = membro_form.save(commit = False)
+            membro.evento = evento
+            membro.save()
             membro_form = MembroForm()
     try:
-        return render_to_response (evento_nome+'.html', locals(), context_instance = RequestContext(request))
+        return render_to_response (evento_sigla+'.html', locals(), context_instance = RequestContext(request))
     except :
         return render_to_response ('base.html', locals(), context_instance = RequestContext(request))

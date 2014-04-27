@@ -16,7 +16,7 @@ urlpatterns = patterns('',
 	(r'^$','sistema.views.home'),
     
     (r'^admin/', include(admin.site.urls)),
-    (r'^(?P<evento_nome>[0-9a-zA-Z]+)/$','sistema.views.evento'),
+    (r'^(?P<evento_sigla>[0-9a-zA-Z]+)/$','sistema.views.evento'),
     # Uncomment the admin/doc line below to enable admin documentation:
     # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
