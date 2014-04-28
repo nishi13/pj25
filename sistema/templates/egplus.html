@@ -156,11 +156,10 @@
 				</div> <!-- /.row -->
 				<div class="row">
 					<div id="lista-dos-anos">
-						{% for ano in anos %}
+						{% for ano,pessoas in anos.items %}
 							<h3>{{ano}}</h3>
 							<div>
-								{% for pessoa in confirmados %}
-									{% if pessoa.ano_de_saida == ano %}
+								{% for pessoa in pessoas %}
 										<div class="col-md-3">
 											<div class="member-item">
 												<div class="member-thumb">
@@ -189,7 +188,6 @@
 												</div>
 											</div>
 										</div><!-- /.col-md-4 -->
-									{% endif %}
 								{% endfor %}
 							</div>
 						{% endfor %}

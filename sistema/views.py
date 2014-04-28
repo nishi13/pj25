@@ -17,16 +17,12 @@ def evento (request, evento_sigla):
     imagens = Imagem.objects.filter(evento=evento)
     confirmados = Membro.objects.filter(evento=evento).filter(confirmado=True).order_by('nome')
     mensagens = Membro.objects.filter(mensagem__isnull=False).exclude(mensagem="").order_by('-horario_do_submit')
-    anos = []
+    anos = {}
     for pessoa in confirmados:
-    	flag = 1
-    	for ano in anos:
-    		if ano == pessoa.ano_de_saida:
-    			flag = 0
-    			break
-    	if flag:
-    		anos.append(pessoa.ano_de_saida)
-    		anos.sort()
+        try:
+            anos[pessoa.ano_de_saida].append(pessoa)
+    	except:
+            anos[pessoa.ano_de_saida]=[pessoa]
     if request.method == 'GET':
         membro_form = MembroForm()
     else:
