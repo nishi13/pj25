@@ -18,6 +18,8 @@ li.secBgColor a.active { color: #FBAA26; }
 .contact-form label.required:after { content: "*"; color: red; margin-left: 5px; }
 .contact-form textarea {height: 150px; }
 
+.polijr {margin:22.5px 10px;}
+
 .submit-btn { margin-top: 30px; }
 
 /* codigo para mensagem */
@@ -55,7 +57,7 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Open Sans', Arial, Helvetice Neue, sans-s
 
 #main-sidebar { float: left; width: 23%; height: 100%; position: fixed; background-color: #495054; color: white; }
 
-.logo { margin: 100px 0; padding: 25px 40px; }
+.logo { margin-bottom: 100px; padding: 25px 40px; }
 .logo a { color: white; }
 .logo a h1 { text-transform: uppercase; font-size: 30px; margin: 0; font-weight: 800; }
 .logo span { color: #bee3f6; font-size: 13px; }
@@ -108,7 +110,7 @@ a.menu-toggle-btn i { line-height: 60px; }
 
 .welcome-text { padding: 60px; text-align: center; }
 .welcome-text a { color: #38a9e3; }
-.welcome-text h2 { font-weight: 300; text-transform: uppercase; font-size: 32px; }
+.welcome-text h2 { font-weight: 500; text-transform: uppercase; font-size: 32px; }
 .welcome-text p { color: #aaaaaa; }
 
 .member-item { overflow: hidden; height: auto; }
