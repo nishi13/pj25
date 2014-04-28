@@ -107,8 +107,9 @@
 					</div>
 				</div>
 				<div class="row contact-form">
-					<form action="" method="POST" ENCTYPE="multipart/form-data"> {% csrf_token %}
+					<form action="#formulario" method="POST" ENCTYPE="multipart/form-data"> {% csrf_token %}
 				        {% for pergunta in membro_form %}
+				        <div {% if pergunta.errors %}class='error'{% endif %}>
 				        {% if pergunta.id_for_label == 'id_cargo' %}
 				        <div class="col-md-4">
 							<div class="portfolio-item">
@@ -138,8 +139,9 @@
 							{% endif %}
 									<h3>{{pergunta.label}}</h3>
 		        					{{pergunta}}
-							</div>
+						</div>
 						{% endif %}
+						</div>
 				        {% endfor %}
 				        <!--{{membro_form.as_p}}-->
 				        <div class="col-md-12">

@@ -31,7 +31,8 @@ def evento (request, evento_sigla):
         if cargo == '--Adicionar--':
             cargo = request.POST.get("cargo_add").capitalize()
             membro_form.data['cargo']=cargo
-            Cargo.objects.get_or_create(nome=cargo)
+            if cargo:
+                Cargo.objects.get_or_create(nome=cargo)
         if membro_form.is_valid():
             membro = membro_form.save(commit = False)
             membro.evento = evento

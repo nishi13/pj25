@@ -60,7 +60,7 @@ class Membro(models.Model):
     ano_de_ingresso = models.IntegerField(verbose_name="Ano de Ingresso *")
     ano_de_saida = models.IntegerField(verbose_name="Ano de Saida", null=True, blank=True)
     email = models.EmailField(max_length=128, verbose_name="E-mail *", unique=True)
-    cargo = models.ForeignKey(Cargo, null=True, blank=True, verbose_name="Cargo *")
+    cargo = models.ForeignKey(Cargo, verbose_name="Cargo *")
     facebook = models.URLField(max_length=256, null=True, blank=True)
     twitter = models.URLField(max_length=256, null=True, blank=True)
     linkedin = models.URLField(max_length=256, null=True, blank=True)
