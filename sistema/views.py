@@ -31,6 +31,11 @@ def evento (request, evento_sigla):
         membro_form = MembroForm()
     else:
         membro_form = MembroForm(request.POST, request.FILES)
+        cargo = request.POST.get("cargo")
+        if cargo == '--Adicionar--':
+            cargo = request.POST.get("cargo_add").capitalize()
+            membro_form.data['cargo']=cargo
+            Cargo.objects.get_or_create(nome=cargo)
         if membro_form.is_valid():
             membro = membro_form.save(commit = False)
             membro.evento = evento

@@ -29,9 +29,7 @@
 	            <li class="about "><a href="#about">Formulário de Interesse</a></li>
 	            <li class="services "><a href="#services">Confirmados</a></li>
 	            <li class="portfolio "><a href="#portfolio">Mensagens</a></li>
-			{% if evento.local %}
-	            <li class="contact "><a href="#contact">Mapa</a></li>
-	        {% endif %}
+	            <li class="contact "><a href="#contact">Informações Gerais</a></li>f
             </ul> <!-- /.main_menu -->
         </div> <!-- /.responsive_menu -->
     </div> <!-- /responsive_navigation -->
@@ -48,9 +46,7 @@
 	            <li class="about secBgColor"><a href="#about">Formulário de Interesse</a></li>
 	            <li class="services mainBgColor"><a href="#services">Confirmados</a></li>
 	            <li class="portfolio secBgColor"><a href="#portfolio">Mensagens</a></li>
-			{% if evento.local %}
-	            <li class="contact mainBgColor"><a href="#contact">Mapa</a></li>
-	        {% endif %}
+	            <li class="contact mainBgColor"><a href="#contact">Informações Gerais</a></li>
 	        </ul>
 		</div> <!-- /.navigation -->
 
@@ -258,15 +254,23 @@
 <!--   ............................. /#mapa  .............................    -->
 
 
-		{% if evento.local %}
 			<div id="contact" class="section-content">
 				<div class="row">
 					<div class="col-md-12">
 						<div class="section-title">
-							<h2 class="mainBgColor">Mapa</h2>
+							<h2 class="mainBgColor">Informações Gerais</h2>
 						</div> <!-- /.section-title -->
 					</div> <!-- /.col-md-12 -->
 				</div> <!-- /.row -->
+				<div class="row">
+					<div class="col-md-12">
+							<h3>Data: {{evento.data}}</h3>
+							{% if evento.traje %}
+							<h3>Traje: {{evento.traje}}</h3>
+							{% endif %}
+					</div> <!-- /.col-md-12 -->
+				</div> <!-- /.row -->
+		{% if evento.local %}
 				<div class="row">
 					<div class="col-md-12">
 						<div class="map-holder">
@@ -276,8 +280,8 @@
 						</div> <!-- /.map-holder -->
 					</div> <!-- /.col-md-12 -->
 				</div> <!-- /.row -->
-			</div> <!-- /#contact -->
 			{% endif %}
+			</div> <!-- /#contact -->
 
 		</div> <!-- /.container-fluid -->
 
