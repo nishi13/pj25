@@ -48,6 +48,8 @@ class Evento(models.Model):
     local = models.CharField(max_length=256, verbose_name="Local", null=True, blank=True)
     template = models.FileField(upload_to=upload_template, null=True, blank=True)
     css = models.FileField(upload_to=upload_css, null=True, blank=True)
+    data = models.CharField(max_length=64, verbose_name="Data")
+    traje = models.CharField(max_length=64, verbose_name="Traje", null=True, blank=True)
 
     def __unicode__(self):
         return self.sigla
