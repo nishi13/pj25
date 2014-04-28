@@ -66,8 +66,8 @@
 						{% for imagem in imagens%}
 							<li>
 								<div class="slider-caption">
-									<h2>{{imagem.titulo}}</h2>
-									<p>{{imagem.subtitulo}}</p>
+									<h2>{{imagem.titulo|default:""}}</h2>
+									<p>{{imagem.subtitulo|default:""}}</p>
 								</div>
 								<img src="/{{imagem.arquivo}}">
 							</li>
