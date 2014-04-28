@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from django.db import models
 import os
 
@@ -59,7 +60,7 @@ class Membro(models.Model):
     nome = models.CharField(max_length=128, verbose_name="Nome Completo *")
     apelido = models.CharField(max_length=64, null=True, blank=True, verbose_name="Apelido")
     ano_de_ingresso = models.IntegerField(verbose_name="Ano de Ingresso *")
-    ano_de_saida = models.IntegerField(verbose_name="Ano de Saida", null=True, blank=True)
+    ano_de_saida = models.IntegerField(verbose_name="Ano de Saída", null=True, blank=True)
     email = models.EmailField(max_length=128, verbose_name="E-mail *", unique=True)
     cargo = models.ForeignKey(Cargo, verbose_name="Cargo *")
     facebook = models.URLField(max_length=256, null=True, blank=True)

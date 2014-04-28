@@ -86,8 +86,8 @@
 							{% if evento.logo %}
 								<img src="/{{evento.logo}}">
 							{% endif %}
-							<h2>Bem vindo ao site de confirmação do {{evento.nome}}</h2>
-							<p>Neste site você pode confirmar presença no formulário abaixo, verificar quem já confirmou e quais mensagens deixou, além de checar as informações do evento e o mapa de como chegar</p>
+							<h2>Bem vindo ao site do {{evento.nome}}</h2>
+							<p>Aqui você pode confirmar presença no formulário abaixo, verificar quem já confirmou e quais mensagens deixou, além de checar as informações do evento, o mapa de como chegar ou deixar mensagens</p>
 						</div>
 					</div>
 				</div>
@@ -242,7 +242,7 @@
 								</div>
 								<div class="member-content">
 									<h4>{{mensagem.nome}}</h4>
-									<p>{{pessoa.apelido}} - {{pessoa.cargo}}</p>
+									<p>{{mensagem.apelido}} - {{mensagem.cargo}}</p>
 								</div>
 							</div>
 						</div>

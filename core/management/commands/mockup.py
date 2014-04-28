@@ -62,7 +62,7 @@ class Command(NoArgsCommand):
         diretor = Cargo('Diretor')
         diretor.save()
 
-        conselho = Cargo('Conselho')
+        conselho = Cargo('Conselheiro')
         conselho.save()
 
         Imagem(evento=egplus, titulo='Foto1', arquivo='static/images/fotos/egplus_1.jpg').save()
