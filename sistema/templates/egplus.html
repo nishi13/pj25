@@ -25,11 +25,21 @@
         </a>
         <div class="navigation responsive-menu">
             <ul>
+<<<<<<< HEAD
+                <li class="home "><a href="#topo">Topo</a></li>
+	            <li class="about "><a href="#formulario">Formulário de Interesse</a></li>
+	            <li class="services "><a href="#confirmados">Confirmados</a></li>
+	            <li class="portfolio "><a href="#mensagens">Mensagens</a></li>
+			{% if evento.local %}
+	            <li class="contact "><a href="#informacoes">Mapa</a></li>
+	        {% endif %}
+=======
                 <li class="home "><a href="#templatemo">Topo</a></li>
 	            <li class="about "><a href="#about">Formulário de Interesse</a></li>
 	            <li class="services "><a href="#services">Confirmados</a></li>
 	            <li class="portfolio "><a href="#portfolio">Mensagens</a></li>
 	            <li class="contact "><a href="#contact">Informações Gerais</a></li>f
+>>>>>>> 568b02581ec4669659502d0ef0ddd6e59d62161d
             </ul> <!-- /.main_menu -->
         </div> <!-- /.responsive_menu -->
     </div> <!-- /responsive_navigation -->
@@ -42,11 +52,21 @@
 
 		<div class="navigation">
 	        <ul class="main-menu">
+<<<<<<< HEAD
+	            <li class="home mainBgColor"><a href="#topo">Topo</a></li>
+	            <li class="about secBgColor"><a href="#formulario">Formulário de Interesse</a></li>
+	            <li class="services mainBgColor"><a href="#confirmados">Confirmados</a></li>
+	            <li class="portfolio secBgColor"><a href="#mensagens">Mensagens</a></li>
+			{% if evento.local %}
+	            <li class="contact mainBgColor"><a href="#informacoes">Mapa</a></li>
+	        {% endif %}
+=======
 	            <li class="home mainBgColor"><a href="#templatemo">Topo</a></li>
 	            <li class="about secBgColor"><a href="#about">Formulário de Interesse</a></li>
 	            <li class="services mainBgColor"><a href="#services">Confirmados</a></li>
 	            <li class="portfolio secBgColor"><a href="#portfolio">Mensagens</a></li>
 	            <li class="contact mainBgColor"><a href="#contact">Informações Gerais</a></li>
+>>>>>>> 568b02581ec4669659502d0ef0ddd6e59d62161d
 	        </ul>
 		</div> <!-- /.navigation -->
 
@@ -56,7 +76,7 @@
 
 <!--   ................. /#topo  .................    -->
 
-		<div id="templatemo">
+		<div id="topo">
 			<div class="main-slider">
 				<div class="flexslider">
 					<ul class="slides">
@@ -78,8 +98,10 @@
 						<div class="welcome-text">
 					
 					<!-- ................. /#colocar variavel .................-->
-
-							<h2  class="mainBgColor">Seja bem vindo ao site de confirmação do {{evento.nome}}</h2>
+							{% if evento.logo %}
+								<img src="/{{evento.logo}}">
+							{% endif %}
+							<h2>Seja bem vindo ao site de confirmação do {{evento.nome}}</h2>
 							<p>Neste site você pode confirmar presença no formulário abaixo, verificar quem já confirmou e quais mensagens deixou, além de checar as informações do evento e o mapa de como chegar</p>
 						</div>
 					</div>
@@ -91,10 +113,10 @@
 
 <!--   ................. /#formulario  .................    -->
 
-			<div id="about" class="section-content">
+			<div id="formulario" class="section-content">
 				<div class="row">
 					<div class="col-md-12">
-						<div class="section-title">
+						<div class="section-title secBgColor">
 							<h2 class="secBgColor">Formulário de Interesse</h2>
 						</div>
 					</div>
@@ -123,7 +145,7 @@
 							{% if pergunta.label == "Mensagem" %}
 			        			<div class="col-md-12">
 		        			{% else %}
-		        				{% if pergunta.label == "Foto" %}
+		        				{% if pergunta.label == "Foto de Perfil" %}
 									<div class="col-md-2">
 									</div>
 								{% endif %}
@@ -146,10 +168,10 @@
 			
 <!--   ................. /#confirmados  .................    -->
 
-			<div id="services" class="section-content">
+			<div id="confirmados" class="section-content">
 				<div class="row">
 					<div class="col-md-12">
-						<div class="section-title">
+						<div class="section-title mainBgColor">
 							<h2 class="mainBgColor">Confirmados</h2>
 						</div> <!-- /.section-title -->
 					</div> <!-- /.col-md-12 -->
@@ -199,10 +221,10 @@
 
 <!--   ................. /#mensagens  .................    -->
 
-			<div id="portfolio" class="section-content">
+			<div id="mensagens" class="section-content">
 				<div class="row">
 					<div class="col-md-12">
-						<div class="section-title">
+						<div class="section-title secBgColor">
 							<h2 class="secBgColor">Mensagens</h2>
 						</div> <!-- /.section-title -->
 					</div> <!-- /.col-md-12 -->
@@ -252,11 +274,12 @@
 <!--   ............................. /#mapa  .............................    -->
 
 
-			<div id="contact" class="section-content">
+		{% if evento.local %}
+			<div id="informacoes" class="section-content">
 				<div class="row">
 					<div class="col-md-12">
-						<div class="section-title">
-							<h2 class="mainBgColor">Informações Gerais</h2>
+						<div class="section-title mainBgColor">
+							<h2 class="mainBgColor">Mapa</h2>
 						</div> <!-- /.section-title -->
 					</div> <!-- /.col-md-12 -->
 				</div> <!-- /.row -->
@@ -284,26 +307,6 @@
 		</div> <!-- /.container-fluid -->
 
 		<div class="site-footer">
-			<div class="first-footer">
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="social-footer">
-
-<!-- ............................... nishao, o que colocamos no footer? ......................................... -->
-
-								<ul>
-									<li><a href="#" class="fa fa-facebook"></a></li>
-									<li><a href="#" class="fa fa-twitter"></a></li>
-									<li><a href="#" class="fa fa-dribbble"></a></li>
-									<li><a href="#" class="fa fa-linkedin"></a></li>
-									<li><a href="#" class="fa fa-rss"></a></li>
-								</ul>
-							</div> <!-- /.social-footer -->
-						</div> <!-- /.col-md-12 -->
-					</div> <!-- /.row -->
-				</div> <!-- /.container-fluid -->
-			</div> <!-- /.first-footer -->
 			<div class="bottom-footer">
 				<div class="container-fluid">
 					<div class="row">
@@ -335,11 +338,22 @@
 				$('.mainBgColor').css('background','#{{evento.rgb_primario}}');
 				$('li.mainBgColor a').css('border-color','#{{evento.rgb_primario}}');
 				$('li.mainBgColor a').css('color','#FFF');
+				$('#confirmados .mainBgColor').css('background','#FFF');
+				$('#confirmados .mainBgColor').css('border-color','#{{evento.rgb_primario}}');
+				$('#informacoes .mainBgColor').css('background','#FFF');
+				$('#informacoes .mainBgColor').css('border-color','#{{evento.rgb_primario}}');
 				$('li.mainBgColor a.active').css('color','#{{evento.rgb_primario}}');
+				$('h2.mainBgColor').css('background','#{{evento.rgb_primario}}');
+				
 				$('.secBgColor').css('background','#{{evento.rgb_secundario}}');
 				$('li.secBgColor a').css('border-color','#{{evento.rgb_secundario}}');
 				$('li.secBgColor a').css('color','#FFF');
 				$('li.secBgColor a.active').css('color','#{{evento.rgb_secundario}}');
+				$('#formulario .secBgColor').css('background','#FFF');
+				$('#formulario .secBgColor').css('border-color','#{{evento.rgb_secundario}}');
+				$('#mensagens .secBgColor').css('background','#FFF');
+				$('#mensagens .secBgColor').css('border-color','#{{evento.rgb_secundario}}');
+				$('h2.secBgColor').css('background','#{{evento.rgb_secundario}}');
 			};
 		};
 		$(document).ready(dinamic_colors);
