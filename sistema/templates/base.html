@@ -15,9 +15,11 @@
 	<link rel="stylesheet" href="/static/css/templatemo_misc.css">
 	<link rel="stylesheet" href="/static/css/templatemo_style.css">
 	<link href="/static/css/ui-lightness/jquery-ui-1.10.4.custom.css" rel="stylesheet">
+
+	<!-- ................. /#Importação do Css do evento .................-->
+	<link rel="stylesheet" href="/static/css/{{evento.sigla}}.css">
 </head>
 <body>
-	
 	<!-- This one in here is responsive menu for tablet and mobiles -->
     <div class="responsive-navigation visible-sm visible-xs">
         <a class="menu-toggle-btn">
@@ -35,6 +37,7 @@
     </div> <!-- /responsive_navigation -->
 
 	<div id="main-sidebar" class="hidden-xs hidden-sm">
+	<img class="polijr" src="/static/images/logo-pj.png">
 		<div class="logo mainBgColor">
 			<h1>{{evento.nome}}</h1>
 			<span>{{evento.titulo}}</span>
@@ -81,7 +84,7 @@
 							{% if evento.logo %}
 								<img src="/{{evento.logo}}">
 							{% endif %}
-							<h2>Seja bem vindo ao site de confirmação do {{evento.nome}}</h2>
+							<h2>Bem vindo ao site de confirmação do {{evento.nome}}</h2>
 							<p>Neste site você pode confirmar presença no formulário abaixo, verificar quem já confirmou e quais mensagens deixou, além de checar as informações do evento e o mapa de como chegar</p>
 						</div>
 					</div>
