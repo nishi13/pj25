@@ -50,6 +50,7 @@ class Evento(models.Model):
     css = models.FileField(upload_to=upload_css, null=True, blank=True)
     data = models.CharField(max_length=64, verbose_name="Data")
     traje = models.CharField(max_length=64, verbose_name="Traje", null=True, blank=True)
+    descricao = models.TextField(max_length=1024, verbose_name="Mensagem", null=True, blank=True)
 
     def __unicode__(self):
         return self.sigla

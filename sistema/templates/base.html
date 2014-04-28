@@ -275,6 +275,10 @@
 							{% if evento.traje %}
 							<h3>Traje: {{evento.traje}}</h3>
 							{% endif %}
+							{% if evento.descricao %}
+							<h3>Informações: {{evento.descricao|safe}}</h3>
+							{% endif %}
+
 					</div> <!-- /.col-md-12 -->
 				</div> <!-- /.row -->
 		{% if evento.local %}
