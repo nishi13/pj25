@@ -23,6 +23,13 @@ def evento (request, evento_sigla):
             anos[pessoa.ano_de_saida].append(pessoa)
     	except:
             anos[pessoa.ano_de_saida]=[pessoa]
+    lista=[]
+    for key,value in anos.iteritems():
+        if key:
+            lista.append((key,value))
+        else:
+            lista.append(('Membros Atuais',value))
+    lista=sorted(lista)
     if request.method == 'GET':
         membro_form = MembroForm()
     else:
@@ -38,7 +45,7 @@ def evento (request, evento_sigla):
             membro.evento = evento
             membro.save()
             membro_form = MembroForm()
-            return HttpResponseRedirect('/'+evento_sigla+'/#services')
+            return HttpResponseRedirect('#services')
     try:
         return render_to_response (evento_sigla+'.html', locals(), context_instance = RequestContext(request))
     except :
