@@ -51,35 +51,7 @@ h1, h2, h3, h4, h5, h6 { font-family: 'Open Sans', Arial, Helvetice Neue, sans-s
 .section-title { border-top: 4px solid; margin-bottom: 60px; }
 .section-title h2 { display: inline-block; padding: 20px 35px; color: white; text-transform: uppercase; font-weight: 300; margin: 0; font-size: 20px; }
 
-/*
-#about .section-title { border-color: #e09d1a; }
-#about h2 { background-color: #e9b144; }
-
-#services .section-title { border-color: #7c1fe5; }
-#services h2 { background-color: #974dea; }
-
-#portfolio .section-title { border-color: #1dcb7c; }
-#portfolio h2 { background-color: #38e395; }
-
-#contact .section-title { border-color: #cb1d62; }
-#contact h2 { background-color: #e3387c; }
-*/
 .largeButton { color: white; text-transform: uppercase; font-weight: 700; font-size: 14px; display: inline-block; padding: 10px 20px; border-bottom: 3px solid; }
-
-.homeBgColor { background: #38a9e3; }
-.homeBgColor:hover { background-color: #16709f; }
-
-.portfolioBgColor { background: #38e395; }
-.portfolioBgColor:hover { background-color: #169f60; }
-
-.contactBgColor { background: #e3387c; }
-.contactBgColor:hover { background-color: #9f164d; }
-
-a.largeButton.homeBgColor { border-color: #16709f; }
-
-a.largeButton.portfolioBgColor { border-color: #169f60; }
-
-a.largeButton.contactBgColor { border-color: #9f164d; }
 
 #main-sidebar { float: left; width: 23%; height: 100%; position: fixed; background-color: #495054; color: white; }
 
@@ -136,7 +108,7 @@ a.menu-toggle-btn i { line-height: 60px; }
 
 .welcome-text { padding: 60px; text-align: center; }
 .welcome-text a { color: #38a9e3; }
-.welcome-text h2 { color: #FFF; font-weight: 300; text-transform: uppercase; font-size: 32px; }
+.welcome-text h2 { font-weight: 300; text-transform: uppercase; font-size: 32px; }
 .welcome-text p { color: #aaaaaa; }
 
 .member-item { overflow: hidden; height: auto; }

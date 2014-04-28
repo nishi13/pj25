@@ -21,11 +21,11 @@ def evento (request, evento_sigla):
     for pessoa in confirmados:
     	flag = 1
     	for ano in anos:
-    		if ano == pessoa.ano_de_saida:
+    		if ano == pessoa.ano_de_ingresso:
     			flag = 0
     			break
     	if flag:
-    		anos.append(pessoa.ano_de_saida)
+    		anos.append(pessoa.ano_de_ingresso)
     		anos.sort()
     if request.method == 'GET':
         membro_form = MembroForm()
