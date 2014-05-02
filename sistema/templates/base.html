@@ -1,3 +1,4 @@
+{% load customtags %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -252,7 +253,7 @@
 							{% else %}
 								<h3>Não confirmou presença</h3>
 							{% endif %}
-							<p class="mensage-text"><em>"{{mensagem.mensagem|safe}}"</em></p>
+							<p class="mensage-text"><em>"{{mensagem.mensagem|safe_tags|safe}}"</em></p>
 						</div>
 					</div><!-- /.row -->
 				{% endfor %} 
