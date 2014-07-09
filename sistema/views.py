@@ -17,6 +17,7 @@ def evento (request, evento_sigla):
     imagens = Imagem.objects.filter(evento=evento)
     confirmados = Membro.objects.filter(evento=evento).filter(confirmado=True).order_by('nome')
     mensagens = Membro.objects.filter(evento=evento).filter(mensagem__isnull=False).exclude(mensagem="").order_by('-horario_do_submit')
+    mensagens_total = Membro.objects.filter(evento=evento).exclude(mensagem="").order_by('-horario_do_submit')
     anos = {}
     for pessoa in confirmados:
         try:
